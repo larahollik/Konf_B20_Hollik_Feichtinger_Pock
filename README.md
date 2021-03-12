@@ -2,3 +2,5 @@
 Lara Mae Hollik class Cocktail
 
 Daniela Pock subclass of SimpleDrink named Shots
+
+Viktoria Feichtinger subclass of Cocktail named LongDrink
