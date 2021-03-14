@@ -26,6 +26,9 @@ public class Main {
         Juice j = new Juice("applejuice", juice, "apple", 17.20, true);
         System.out.println(j.toString() + ", " + Juice.informationToString(j));
 
+        Drink lD = new LongDrink("Basil Smash", "sour", "Hurricane");
+        System.out.println(lD);
+
         
     }
 }
