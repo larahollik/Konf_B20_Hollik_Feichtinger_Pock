@@ -1,8 +1,23 @@
 # Konf_B20_Hollik_Feichtinger_Pock
-Authors: 
+### Authors: 
 - Lara Mae Hollik
 - Viktoria Feichtinger
 - Daniela Pock
+
+### Motivation:
+The main motivation is to get used to Git and Github. This is the first submission for the subject Configuration Management in 2021.
+
+We created a repository and added additional subclasses. 
+
+## Classes:
+- Main
+- Liquid
+- Drink
+- SimpleDrink
+- Cocktail
+- Juice
+- Longdrink
+
 
 ## Lara Mae Hollik subclass of Drink named Cocktail
 I have derived the abstract class Drink and created a new subclass called Cocktail. This class contains new attributes in addition to the inherited name of Drink. These are the flavour, the glass, a list of decorations, the alcohol percentage and the volume.
