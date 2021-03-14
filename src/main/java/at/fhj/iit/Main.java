@@ -21,5 +21,11 @@ public class Main {
         c.setVolume(0.300);
         c.addDecoration("pineapple");
         System.out.println(c.printCocktailMessage());
+
+        Liquid juice = new Liquid("juice", 1, 0);
+        Juice j = new Juice("applejuice", juice, "apple", 17.20, true);
+        System.out.println(j.toString() + ", " + Juice.informationToString(j));
+
+        
     }
 }
