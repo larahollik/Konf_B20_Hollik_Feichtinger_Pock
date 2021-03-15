@@ -94,6 +94,6 @@ public class Juice extends SimpleDrink {
      * @return info as string
      */
     public static String informationToString(Juice j){
-        return "Main ingredient: " + j.mainIngredient + ", sugar content in percent: " + j.sugarPercent + ", is diluted with water: " + j.isDilutedWithWater;
+        return "Main ingredient: " + j.mainIngredient + ", sugar content in percent: " + j.sugarPercent + "%, is diluted with water: " + j.isDilutedWithWater;
     }
 }

@@ -30,4 +30,10 @@ I created getter and setter methods for all private attributes. I implemented th
 
 ## Daniela Pock subclass of SimpleDrink named Juice
 
+I created the non-alcoholic subclass Juice of the class SimpleDrinks. The class Juice has 4 attributes, an object simple drink as basis, a String mainIngredient for the main ingredient of the juice, a double sugarPercent which shows the sugar content in Percent of the juice, and a boolean isDilutedWithWater which shows if the juice was diluted with water.
+
+Then I created getter and setter methods for the private attributes. I implemented an additional method which turns the information into a String called informationToString.
+
+
+
 ## Viktoria Feichtinger subclass of Cocktail named LongDrink
