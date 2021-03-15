@@ -37,3 +37,7 @@ Then I created getter and setter methods for the private attributes. I implement
 
 
 ## Viktoria Feichtinger subclass of Cocktail named LongDrink
+I created a subclass named LongDrink of the class Cocktail. The class has three methods and one additional attribute of type "CocktailType" from the Cocktail class to set the cocktail type of that class to "Longdrink". 
+
+I didn't create getter and setter methods but two methods for the ingredients of the long drink, one method gives information about non-alcoholic ingredients, the other one about alcoholic ingredients, the information is turned into a String. 
+To print out the information a method called toString has been implemented, it gives details about the name, flavour, cocktail type, glass type and ingredients. 
