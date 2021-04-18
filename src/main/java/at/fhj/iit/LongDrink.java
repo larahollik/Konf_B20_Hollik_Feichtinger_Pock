@@ -18,8 +18,8 @@ public class LongDrink extends Cocktail {
      * @param flavour flavour of the Cocktail
      * @param glass   type of glass of the Cocktail
      */
-    public LongDrink(String name, String flavour, String glass) {
-        super(name, flavour, glass);
+    public LongDrink(String name, String flavour, String glass, double volume, double alcoholPercent) {
+        super(name, flavour, glass, volume, alcoholPercent);
     }
 
     /**

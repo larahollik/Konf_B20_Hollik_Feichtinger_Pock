@@ -50,10 +50,12 @@ public class Cocktail extends Drink {
      * @param flavour       flavour of the Cocktail
      * @param glass         type of glass of the Cocktail
      */
-    public Cocktail(String name, String flavour, String glass) {
+    public Cocktail(String name, String flavour, String glass, double volume, double alcoholPercent) {
         super(name);
         this.flavour = flavour;
         this.glass = glass;
+        this.volume = volume;
+        this.alcoholPercent = alcoholPercent;
     }
 
     /**

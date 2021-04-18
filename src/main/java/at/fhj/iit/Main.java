@@ -15,18 +15,22 @@ public class Main {
         Drink d = new SimpleDrink("Rotwein",l);
         System.out.println(d);
 
-        Cocktail c = new Cocktail("Pina Colada", "creamy", "Hurricane");
+        System.out.println("\n"+"*".repeat(50)+"\n");
+        
+        Cocktail c = new Cocktail("Pina Colada", "creamy", "Hurricane", 0.300, 28.0);
         c.setCocktailType(Cocktail.CocktailType.Dessert_Cocktail);
-        c.setAlcoholPercent(28.0);
-        c.setVolume(0.300);
         c.addDecoration("pineapple");
         System.out.println(c.printCocktailMessage());
+
+        System.out.println("\n"+"*".repeat(50)+"\n");
 
         Liquid juice = new Liquid("juice", 1, 0);
         Juice j = new Juice("applejuice", juice, "apple", 17.20, true);
         System.out.println(j.toString() + ", " + Juice.informationToString(j));
 
-        Drink lD = new LongDrink("Basil Smash", "sour", "Hurricane");
+        System.out.println("\n"+"*".repeat(50)+"\n");
+
+        Drink lD = new LongDrink("Basil Smash", "sour", "Hurricane", 0.33, 12.0);
         System.out.println(lD);
 
         
