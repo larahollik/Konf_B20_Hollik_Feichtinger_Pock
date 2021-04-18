@@ -16,12 +16,13 @@ public class Cocktail extends Drink {
         Aperitif,
         Alcoholfree_Drink;
     }
+
     /**
      * a list of possible Cocktail decorations, because each Cocktail type gets differently decorated.
      */
     private List<String> decorations = new ArrayList<String>();
     /**
-     *volume of the Cocktail in liter.
+     * volume of the Cocktail in liter.
      */
     private double volume;
     /**
@@ -46,10 +47,10 @@ public class Cocktail extends Drink {
      * with the identified flavour, e. g. sour, sweet, creamy...,
      * with the type of glass, e. g. Balloon, Old Fashioned...
      *
-     * @param name          name of the drink
-     * @param flavour       flavour of the Cocktail
-     * @param glass         type of glass of the Cocktail
-     * @param volume        volume of the Cocktail
+     * @param name           name of the drink
+     * @param flavour        flavour of the Cocktail
+     * @param glass          type of glass of the Cocktail
+     * @param volume         volume of the Cocktail
      * @param alcoholPercent alcoholPercent of the Cocktail
      */
     public Cocktail(String name, String flavour, String glass, double volume, double alcoholPercent) {
@@ -62,6 +63,7 @@ public class Cocktail extends Drink {
 
     /**
      * Getter for flavour
+     *
      * @return flavour of Cocktail
      */
     public String getFlavour() {
@@ -70,6 +72,7 @@ public class Cocktail extends Drink {
 
     /**
      * Setter for flavour
+     *
      * @param flavour new flavour
      */
     public void setFlavour(String flavour) {
@@ -78,6 +81,7 @@ public class Cocktail extends Drink {
 
     /**
      * Getter for the type of glass
+     *
      * @return glass of Cocktail
      */
     public String getGlass() {
@@ -86,6 +90,7 @@ public class Cocktail extends Drink {
 
     /**
      * Setter for glass
+     *
      * @param glass new glass
      */
     public void setGlass(String glass) {
@@ -94,6 +99,7 @@ public class Cocktail extends Drink {
 
     /**
      * Getter for the cocktailType
+     *
      * @return cocktailType
      */
     public CocktailType getCocktailType() {
@@ -102,6 +108,7 @@ public class Cocktail extends Drink {
 
     /**
      * Setter for cocktailType
+     *
      * @param cocktailType new cocktailType
      */
     public void setCocktailType(CocktailType cocktailType) {
@@ -111,14 +118,17 @@ public class Cocktail extends Drink {
 
     /**
      * Calculates and returns volume of drink
+     *
      * @return the volume of drink in liter
      */
     @Override
     public double getVolume() {
         return this.volume;
     }
+
     /**
      * Setter for volume
+     *
      * @param volume new volume
      */
     public void setVolume(double volume) {
@@ -127,26 +137,31 @@ public class Cocktail extends Drink {
 
     /**
      * Calculates and returns the alcohol percentage
+     *
      * @return alcohol volume percent (e.g. 50)
      */
     @Override
     public double getAlcoholPercent() {
         return this.alcoholPercent;
     }
+
     /**
      * Setter for alcoholPercent
+     *
      * @param alcoholPercent new alcoholPercent
-     */    public void setAlcoholPercent(double alcoholPercent) {
+     */
+    public void setAlcoholPercent(double alcoholPercent) {
         this.alcoholPercent = alcoholPercent;
     }
 
     /**
      * Gives information if drink is alcoholic or not
+     *
      * @return true when alcoholic liquids are present, otherwise false
      */
     @Override
     public boolean isAlcoholic() {
-        if(alcoholPercent >0.0) {
+        if (alcoholPercent > 0.0) {
             return true;
         } else {
             return false;
@@ -155,6 +170,7 @@ public class Cocktail extends Drink {
 
     /**
      * Adds a deco-item to the decorations list.
+     *
      * @param deco
      */
     public void addDecoration(String deco) {
@@ -163,12 +179,13 @@ public class Cocktail extends Drink {
 
     /**
      * Get all decoration-items in a single String.
+     *
      * @return result
      */
     public String getAllDecorations() {
         String result = "";
 
-        if(decorations.size() == 1) {
+        if (decorations.size() == 1) {
             return decorations.get(0);
         }
         for (String item : decorations) {
@@ -185,27 +202,26 @@ public class Cocktail extends Drink {
     /**
      * Checks the flavour of a Cocktail and prints out the taste.
      */
-    public void printTastingFlavour() {
-
+    public String printTastingFlavourMessage() {
         switch (flavour) {
             case "sweet":
-                System.out.println("This Cocktail tastes sweet!");
-                break;
+                return ("This Cocktail tastes sweet!");
+
             case "bitter":
-                System.out.println("This Cocktail tastes bitter!");
-                break;
+                return ("This Cocktail tastes bitter!");
+
             case "fruity":
-                System.out.println("This Cocktail tastes fruity!");
-                break;
+                return ("This Cocktail tastes fruity!");
+
             case "sour":
-                System.out.println("This Cocktail tastes sour!");
-                break;
+                return ("This Cocktail tastes sour!");
+
             case "creamy":
-                System.out.println("This Cocktail tastes creamy!");
-                break;
+                return ("This Cocktail tastes creamy!");
+
             default:
-                System.out.println("You must enter a valid flavour!");
-                break;
+                return ("You must enter a valid flavour!");
+
         }
 
     }
@@ -213,40 +229,41 @@ public class Cocktail extends Drink {
     /**
      * Checks the glass type of a served Cocktail and prints the right one.
      */
-    public void printGlassType() {
+    public String printGlassTypeMessage() {
 
         switch (glass) {
             case "Balloon":
-                System.out.println("This is a Balloon glass.");
-                break;
+                return ("This is a Balloon glass.");
+
             case "Highball":
-                System.out.println("This is a Highball glass.");
-                break;
+                return ("This is a Highball glass.");
+
             case "Hurricane":
-                System.out.println("This is a Hurricane glass.");
-                break;
+                return ("This is a Hurricane glass.");
+
             case "Martini":
-                System.out.println("This is a Martini glass.");
-                break;
+                return ("This is a Martini glass.");
+
             case "Old Fashioned":
-                System.out.println("This is a Old Fashioned glass.");
-                break;
+                return ("This is a Old Fashioned glass.");
+
             case "Creamer":
-                System.out.println("This is a Creamer glass.");
+                return ("This is a Creamer glass.");
             default:
-                System.out.println("You must enter a valid glass type!");
-                break;
+                return ("You must enter a valid glass type!");
+
         }
 
     }
 
     /**
      * Prints the message about the information of the current Cocktail.
+     *
      * @return String with the current Cocktail information about the flavour, the cocktailType, the name, the alcoholPercent,
      * the glass and the decoration.
      */
     public String printCocktailMessage() {
-        return "A " + flavour +" "+ cocktailType + " called " + name + " with " + getAlcoholPercent() + " percent alcohol by volume, "+volume + " liter of volume and served in a " + glass + " glass " +
+        return "A " + flavour + " " + cocktailType + " called " + name + " with " + getAlcoholPercent() + " percent alcohol by volume, " + volume + " liter of volume and served in a " + glass + " glass " +
                 "decorated with a " + getAllDecorations();
     }
 

@@ -45,3 +45,12 @@ To print out the information a method called toString has been implemented, it g
 # Part 2
 ## Lara Mae Hollik
 - I have rebuilt my Cocktail class so that the volume and alcohol percentage are now passed in the constructor. I have now also adapted this in the main class. Because the class Longdrik inherits from me, I also had to modify it and insert the changes in the constructor and in the main class. For better clarity and formatting reasons, I have inserted a separator line in the main. 
+
+
+- In my Cocktail class, I fixed the addAllDecorations method and added additional checks to the elements. This way I can check whether it is the only element in my ArrayList or the last element and whether I need a comma (only for multiple elements) or not. 
+  
+
+- I have added the CocktailTest class and written suitable unit tests in it to be able to test my methods comprehensively. I have also created a pom.xml file. 
+
+
+- I rewrote the methods printTastingFlavourMessage and printGlassTypeMessage, which are in the Cocktail class, to make my methods more testable. Finally, I formatted the code in the Cocktail class.
