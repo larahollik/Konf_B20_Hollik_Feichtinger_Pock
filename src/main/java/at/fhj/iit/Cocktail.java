@@ -3,6 +3,14 @@ package at.fhj.iit;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <Cocktail>
+ * This class contains all the relevant information for creating a cocktail. It is a derived class that inherits from the abstract class Drink.
+ *
+ * @author Lara Mae Hollik
+ * Last CHange: <18.04.2021>
+ */
+
 public class Cocktail extends Drink {
     /**
      * a enum of possible Cocktail types, so it's easier to classify the Cocktail.
@@ -201,6 +209,8 @@ public class Cocktail extends Drink {
 
     /**
      * Checks the flavour of a Cocktail and prints out the taste.
+     *
+     * @return String
      */
     public String printTastingFlavourMessage() {
         switch (flavour) {
@@ -228,6 +238,8 @@ public class Cocktail extends Drink {
 
     /**
      * Checks the glass type of a served Cocktail and prints the right one.
+     *
+     * @return String
      */
     public String printGlassTypeMessage() {
 
