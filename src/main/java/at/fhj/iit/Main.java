@@ -16,7 +16,7 @@ public class Main {
         System.out.println(d);
 
         System.out.println("\n"+"*".repeat(50)+"\n");
-        
+
         Cocktail c = new Cocktail("Pina Colada", "creamy", "Hurricane", 0.300, 28.0);
         c.setCocktailType(Cocktail.CocktailType.Dessert_Cocktail);
         c.addDecoration("pineapple");

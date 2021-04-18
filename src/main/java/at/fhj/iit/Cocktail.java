@@ -49,6 +49,8 @@ public class Cocktail extends Drink {
      * @param name          name of the drink
      * @param flavour       flavour of the Cocktail
      * @param glass         type of glass of the Cocktail
+     * @param volume        volume of the Cocktail
+     * @param alcoholPercent alcoholPercent of the Cocktail
      */
     public Cocktail(String name, String flavour, String glass, double volume, double alcoholPercent) {
         super(name);
@@ -153,6 +155,7 @@ public class Cocktail extends Drink {
 
     /**
      * Adds a deco-item to the decorations list.
+     * @param deco
      */
     public void addDecoration(String deco) {
         this.decorations.add(deco);
@@ -160,12 +163,20 @@ public class Cocktail extends Drink {
 
     /**
      * Get all decoration-items in a single String.
+     * @return result
      */
     public String getAllDecorations() {
         String result = "";
 
+        if(decorations.size() == 1) {
+            return decorations.get(0);
+        }
         for (String item : decorations) {
-            result += (item + ",");
+            if (decorations.indexOf(item) == decorations.size() - 1) {
+                result += item;
+            } else {
+                result += (item + ", ");
+            }
         }
 
         return result;
