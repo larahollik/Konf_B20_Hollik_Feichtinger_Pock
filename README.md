@@ -95,9 +95,25 @@ ___
 
 - To test my written methods in `LongDrink` I have added the class `LongDrinkTest` which contains three unit tests. 
 They contain the three phases: setup, exercise and verify. 
-
-
-- I changed some syntax and formatting in README.md
+    ````java
+  class LongDrinkTest{
+  // Phase: setup with @BeforeEach (initialisation for working with same constructed object
+  @BeforeEach
+  void setup(){}
+  
+  // all test methods - structure:
+  // Phase: Excersise 
+  @Test
+  @DisplayName("Testing xxx method")
+  void xxx() {
+    // Phase: Verify
+    assertEquals("The expected value of the method", the value of the object from setup); 
+  }
+  // run all tests and reached 100%
+  }  
+  
+- I changed some syntax and formatting in README.md with the help of the [Markdown Guide (Basic Syntax)](https://www.markdownguide.org/basic-syntax/#horizontal-rules)
+and the [Markdown Guide (Markdown Cheat Sheet)](https://www.markdownguide.org/cheat-sheet).
 
 
 - I added the missing documentation to `LongDrink` and `LongDrinkTest` classes and improved the previous documentation.
