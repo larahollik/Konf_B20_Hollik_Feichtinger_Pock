@@ -5,10 +5,11 @@
 - Daniela Pock
 
 ### Motivation:
-The main motivation is to get used to Git and Github. This is the repository of the first and second submission 
-for the subject Configuration Management in 2021.
+The main motivation is to get used to Git and Github.
 
-We created a repository and added additional subclasses. 
+This repository contains a given simple example project from the course 'Configuration Management' in 2021. 
+The given project is the basis to get started with Git and its commands but also to get used to the Javadoc, etc.
+
 
 ## Classes:
 - `Main`
@@ -55,7 +56,7 @@ information into a *String* called *informationToString*.
 I created a subclass named `LongDrink` of the class `Cocktail`. The class has **three methods** and **one additional attribute** of 
 *type "CocktailType"* from the `Cocktail` class to set the cocktail type of that class to "Longdrink". 
 
-I didn't create getter and setter methods but **two methods** *for the ingredients of the long drink*, 
+I didn't create getter and setter methods but **two methods** for the *ingredients* of the long drink, 
 one method gives information about non-alcoholic ingredients, the other one about alcoholic ingredients, 
 the information is turned into a String. 
 To print out the information a **method** called *toString* has been implemented, it gives details about the name, 
@@ -82,3 +83,20 @@ ___
 
 - I rewrote the methods *printTastingFlavourMessage* and *printGlassTypeMessage*, which are in the `Cocktail` class, to make 
   my methods more testable. Finally, I formatted the code in the `Cocktail` class.
+
+
+
+## Viktoria Feichtinger
+- I mended a typing error in `Cocktail` so that the output would appear without common typing mistakes
+
+
+- Due to additional information about *volume* and *alcohol percentage* from `Cocktail` I have changed the *toString* method.
+
+
+- To test my written methods in `LongDrink` I have added the class `LongDrinkTest` which contains suitable unit tests.
+
+
+- I changed some syntax and formatting in README.md
+
+
+- I added the missing documentation to `LongDrink` and `LongDrinkTest` classes and improved the previous documentation.
