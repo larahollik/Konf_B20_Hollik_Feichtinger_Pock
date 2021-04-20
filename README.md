@@ -25,6 +25,7 @@ The given project is the basis to get started with Git and its commands but also
 - `LongDrinkTest`
 ___
 
+
 # First Assignment - Version 1.0
 ## Lara Mae Hollik subclass of Drink named Cocktail
 I have derived the abstract class `Drink` and created a new subclass called `Cocktail`. This class contains **new attributes** 
