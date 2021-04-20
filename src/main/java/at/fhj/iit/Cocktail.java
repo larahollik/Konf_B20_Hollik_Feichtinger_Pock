@@ -17,7 +17,7 @@ public class Cocktail extends Drink {
      */
     public enum CocktailType {
         Shortdrink,
-        Londrink,
+        Longdrink,
         Sour,
         Tropical_Drink,
         Dessert_Cocktail,
