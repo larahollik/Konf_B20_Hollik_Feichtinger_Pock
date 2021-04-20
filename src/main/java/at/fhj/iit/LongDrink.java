@@ -37,8 +37,8 @@ public class LongDrink extends Cocktail {
      */
     public String ingredientsNonAlcohol() {
         return switch (name) {
-            case "Basil Smash" -> "\n - alcoholic: Lemon, sugar syrup, soda water and ice cubes.";
-            default -> "\n - alcoholic: The ingredients of the drink are unknown.";
+            case "Basil Smash" -> "\n - non-alcoholic: Lemon, sugar syrup, soda water and ice cubes.";
+            default -> "\n - non-alcoholic: The ingredients of the drink are unknown.";
         };
     }
 
@@ -46,12 +46,14 @@ public class LongDrink extends Cocktail {
     /**
      * classification of the CocktailType that are valid for all object from that class
      */
-    private final CocktailType cocktailType = CocktailType.Londrink;
+    private final CocktailType cocktailType = CocktailType.Longdrink;
 
     public String toString() {
         return name + " is a " + getFlavour() + " " + cocktailType +
                 " served in a " + getGlass() + " glass "
-                + "and has the following ingredients: " + ingredientsNonAlcohol() + ingredientsAlcohol();
+                + "and has the following ingredients:" + ingredientsNonAlcohol() + ingredientsAlcohol()
+                + "\nMostly it has a volume of " + getVolume()
+                + " with an alcohol percentage of " + getAlcoholPercent() + ".";
     }
 
 }
