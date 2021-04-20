@@ -1,29 +1,35 @@
-/**
- * LongDrink - subclass LongDrink of superclass Cocktail
- * represents a long dink
- * Author:      Viktoria Feichtinger
- * Last Change: 14.03.2021
- */
-
 package at.fhj.iit;
 
+/**
+ * Contains all relevant information to create a long drink
+ * It is a derived class that inherits from the class {@link Cocktail}
+ *
+ * @author Viktoria Feichtinger
+ * @version 2.0, 20.04.2021
+ * @see Cocktail
+ * @since v1.0
+ */
 public class LongDrink extends Cocktail {
 
     /**
-     * Creates a Cocktail object with given name from the superclass Drink, e.g. Pina Colada, Mojito,
-     * with the identified flavour, e. g. sour, sweet, creamy...,
-     * with the type of glass, e. g. Balloon, Old Fashioned...
+     * Creates a Cocktail object with given name from superclass {@link Cocktail}, e.g. Pina Colada, Mojito,
+     * with the identified flavour, e.g. sour, sweet, creamy...,
+     * with the type of glass, e.g. Balloon, Old Fashion...
      *
-     * @param name    name of the drink
-     * @param flavour flavour of the Cocktail
-     * @param glass   type of glass of the Cocktail
+     * @param name              name of the drink
+     * @param flavour           flavour of the cocktail
+     * @param glass             type of glass of the cocktail
+     * @param volume            volume of drink
+     * @param alcoholPercent    alcohol percentage that contains the drink
      */
     public LongDrink(String name, String flavour, String glass, double volume, double alcoholPercent) {
         super(name, flavour, glass, volume, alcoholPercent);
     }
 
     /**
-     * @return alcoholic ingredients
+     * Contains the alcoholic ingredients
+     *
+     * @return String of alcoholic ingredients, if none is given, it has a default setup
      */
     public String ingredientsAlcohol() {
         return switch (name) {
@@ -33,7 +39,9 @@ public class LongDrink extends Cocktail {
     }
 
     /**
-     * @return non-alcoholic ingredients
+     * Contains the non-alcoholic ingredients
+     *
+     * @return String of non-alcoholic ingredients, if none information given, it has a default setup
      */
     public String ingredientsNonAlcohol() {
         return switch (name) {
@@ -42,12 +50,16 @@ public class LongDrink extends Cocktail {
         };
     }
 
-
     /**
-     * classification of the CocktailType that are valid for all object from that class
+     * Classification of the CocktailType that are valid for all object from that class
      */
     private final CocktailType cocktailType = CocktailType.Longdrink;
 
+    /**
+     * Contains given information from the class about a specific long drink
+     *
+     * @return String of given information
+     */
     public String toString() {
         return name + " is a " + getFlavour() + " " + cocktailType +
                 " served in a " + getGlass() + " glass "
@@ -55,5 +67,4 @@ public class LongDrink extends Cocktail {
                 + "\nMostly it has a volume of " + getVolume()
                 + " with an alcohol percentage of " + getAlcoholPercent() + ".";
     }
-
 }
