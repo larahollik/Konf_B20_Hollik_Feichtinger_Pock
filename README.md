@@ -93,10 +93,106 @@ ___
 - Due to additional information about *volume* and *alcohol percentage* from `Cocktail` I have changed the *toString* method.
 
 
-- To test my written methods in `LongDrink` I have added the class `LongDrinkTest` which contains suitable unit tests.
+- To test my written methods in `LongDrink` I have added the class `LongDrinkTest` which contains three unit tests. 
+They contain the three phases: setup, exercise and verify. 
 
 
 - I changed some syntax and formatting in README.md
 
 
 - I added the missing documentation to `LongDrink` and `LongDrinkTest` classes and improved the previous documentation.
+How did I do it? View [JavaDoc basics](#crashcourse---javadoc-basics) for additional information.
+  
+
+- I wrote a draft of some explanations about the most important [JavaDoc basics](#crashcourse---javadoc-basics).
+
+___
+
+# CrashCourse - *JavaDoc basics*
+
+## Overview
+
+A good documentation is one of many factors contributing to the success of a software project.
+It helps to keep track of the implementations for themselves and for others
+
+
+
+## JavaDoc comments
+
+view details [here](https://www.baeldung.com/javadoc)
+
+```java
+// Single line comment
+
+/*
+ * Regular multiple line comment       
+ */
+
+/**
+ * JavaDoc comment
+ */
+```
+
+JavaDoc comments may be placed above any class, method, or field which we want to document.
+
+These comments are made up of two sections:
+
+1. The description of what we're commenting on
+2. The block tags (marked with the "@" symbol) which describe specific meta-data
+
+### JavaDoc at *Fields*
+```java
+/**
+ * Description  
+ */
+```
+
+### Javadoc at *Classes*:
+```java
+/**
+ * Description 
+ * 
+ * @blocked tags 
+ */
+```
+
+### JavaDoc at *Methods*:
+```java
+/**
+ * Description [Begins with a verb phrase]
+ * 
+ * @param nameOfParameter Description of parameter
+ * @return description of return [for every non-void method]
+ */
+```
+
+# Tags
+Two different types of Tags: (view details [here](https://www.javaguides.net/2018/12/the-javadoc-tags-explained.html))
+
+- **stand-alone tags**: (also called block tags) they must be alone in their line
+- **in-line tags**: can be used in larger description
+
+
+Common block tags in order according to [oracle-documentation](https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html):
+
+| Tag | Usage in | Description |
+| --- | --- | ---|
+|**@author**| classes and interfaces only, required| provides the author
+|**@version**| classes and interfaces only, required | provides current version, for example "@version 1.0, 02/28/97" (mm/dd/yy)
+|**@param**| methods and constructors only | is followed by the name of the parameter, followed by a description of the parameter, for example "@param name gives name of ..."
+|**@return**| methods only | gives details about the return value
+|**@throws** (@exception)| methods (and classes) | gives information about what exception is thrown
+|**@see**| class, interface, instance variable and methods | generates a link to an other element of the documentation
+|**@since**| class, interface, instance variables and methods | specifies the product version when the implementation was created
+|**@serial**| class | describes the serializable state of an implementation
+|**@deprecated**| method | first sentence should give user information when the API was deprecated and what to use as a replacement
+
+
+Common in-line tags:
+
+| Tags | Description | 
+| --- | --- | 
+| **{@link *reference*}**| link to an implementation|
+|**{@linkplain *reference*}**| link is displayed as a standard text instead of source text characters
+|**{@code}**| suppresses the interpretation of included HTML or JavaDoc tags 
+
