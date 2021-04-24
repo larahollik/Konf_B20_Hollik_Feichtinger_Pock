@@ -31,11 +31,11 @@ public class JuiceTest {
 
     /**
      * Phase: Exercise
-     * Test for setsD
+     * Test for setsD and getsD
      */
     @Test
-    @DisplayName("setsDTest")
-    void setsDTest(){
+    @DisplayName("setsDAndgetsDTest")
+    void setsDandGetsDTest(){
         Liquid l = new Liquid("liquid2", 0.7, 0.0);
         SimpleDrink sd = new SimpleDrink("liquid2", l);
         j.setsD(sd);
