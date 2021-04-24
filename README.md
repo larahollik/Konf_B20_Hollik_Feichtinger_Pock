@@ -138,6 +138,8 @@ ___
 
 - adapted the readme.md: added information to the git diff command in the [Git Cheat Sheat](#git-cheat-sheat)
 
+- added the JavaDoc Markups to the class Juice
+
 ___
 
 

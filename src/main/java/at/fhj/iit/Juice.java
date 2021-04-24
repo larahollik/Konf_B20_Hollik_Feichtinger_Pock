@@ -1,8 +1,10 @@
 /**
- * subclass juice of superclass SimpleDrink
+ * subclass juice of superclass SimpleDrink {@link at.fhj.iit.SimpleDrink}
  * represents a Juice
- * Author: Daniela Pock
- * last Change: 14.03.2021
+ *
+ * @author: Daniela Pock
+ * @version v2.0, 24.04.2021
+ * @since v1.0
  */
 
 package at.fhj.iit;
