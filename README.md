@@ -135,6 +135,12 @@ ___
 ### Daniela Pock
 
 - I added the unit test for the Class Juice, (My tests follow the same structure as Viktoria's)
+    + added tests for getters and setters
+      The method getsD() and setsD() are tested with one test.
+    + added a test for the informationToString method of the class Juice
+    
+    + Do the testcases cover 100% of the testcases?
+      Yes!
 
 - adapted the readme.md: added information to the git diff command in the [Git Cheat Sheat](#git-cheat-sheat)
 
