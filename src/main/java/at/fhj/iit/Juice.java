@@ -32,10 +32,10 @@ public class Juice extends SimpleDrink {
      */
     private boolean isDilutedWithWater;
 
-
     /**
      * Creates a SimpleDrink object with given name and liquid
-     *  @param name name of drink
+     * alcohol percent is always 0
+     * @param name name of drink
      * @param l    only one liquid in drink, because it's a simple drink an not e.g. a cocktail
      * @param mainIngredient main ingredient of the juice
      * @param sugarPercent  sugar content in percent
@@ -44,7 +44,6 @@ public class Juice extends SimpleDrink {
 
     Juice(String name, Liquid l, String mainIngredient, double sugarPercent, boolean isDilutedWithWater) {
         super(name,l);
-
         this.mainIngredient = mainIngredient;
         this.sugarPercent = sugarPercent;
         this.isDilutedWithWater = isDilutedWithWater;
@@ -94,6 +93,6 @@ public class Juice extends SimpleDrink {
      * @return info as string
      */
     public static String informationToString(Juice j){
-        return "Main ingredient: " + j.mainIngredient + ", sugar content in percent: " + j.sugarPercent + "%, is diluted with water: " + j.isDilutedWithWater;
+        return "The main ingredient of the juice is: " + j.mainIngredient + ", sugar content in percent: " + j.sugarPercent + "%, is diluted with water: " + j.isDilutedWithWater;
     }
 }
