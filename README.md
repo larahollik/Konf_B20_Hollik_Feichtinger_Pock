@@ -118,7 +118,7 @@ ___
         assertEquals("The expected value of the method", the value of the object from setup); 
       }
       // run all tests and reached 100%
-  }  
+  }
 
 - I changed some syntax and formatting in README.md with the help of the [Markdown Guide (Basic Syntax)](https://www.markdownguide.org/basic-syntax/#horizontal-rules)
   and the [Markdown Guide (Markdown Cheat Sheet)](https://www.markdownguide.org/cheat-sheet).
@@ -131,6 +131,12 @@ ___
 - I wrote a draft of some explanations about the most important [JavaDoc basics](#crashcourse---javadoc-basics)
   and as a reminder on how to use git properly I summarized the most important in the [Git Cheat Sheat](#git-cheat-sheat) .
 
+
+### Daniela Pock
+
+- I added the unit test for the Class Juice, (My tests follow the same structure as Viktoria's)
+
+- adapted the readme.md: added information to the git diff command in the [Git Cheat Sheat](#git-cheat-sheat)
 
 ___
 
@@ -153,7 +159,7 @@ or on [Github Cheat Sheat](https://training.github.com/downloads/github-git-chea
 |**git add *fileName***|Add file for the first time or after change to git staging area|
 |**git commit -m "Your message"**|Short messages about change (added files from staging area are now transferred to git repository)|
 |**git log --graph**|Gives information about previous commits|
-|**git diff**|...|
+|**git diff**|Shows the difference between the file which is added and the file which is in the actual branch|
 |**git *unknown command* --help**|Gets additional help (example: git commit --help)|
 
 ### Git remote server commands
