@@ -1,22 +1,18 @@
+package at.fhj.iit;
+
 /**
  * subclass juice of superclass SimpleDrink {@link at.fhj.iit.SimpleDrink}
  * represents a Juice
  *
  * @author: Daniela Pock
- * @version v2.0, 24.04.2021
+ * @version v2.0, 17.05.2021
  * @since v1.0
  */
 
-package at.fhj.iit;
 /**
  * represents a non-alcoholic SimpleDrink liquid Juice which can be used in drinks
  */
 public class Juice extends SimpleDrink {
-
-    /**
-     * is made of one simple Drink and may be diluted with water
-     */
-    protected SimpleDrink sD;
 
     /**
      * main ingredient of the juice (e.g. a fruit, vegetable,...)
@@ -36,7 +32,6 @@ public class Juice extends SimpleDrink {
 
     /**
      * Creates a SimpleDrink object with given name and liquid
-     * alcohol percent is always 0
      * @param name name of drink
      * @param l    only one liquid in drink, because it's a simple drink an not e.g. a cocktail
      * @param mainIngredient main ingredient of the juice
@@ -49,20 +44,11 @@ public class Juice extends SimpleDrink {
         this.mainIngredient = mainIngredient;
         this.sugarPercent = sugarPercent;
         this.isDilutedWithWater = isDilutedWithWater;
-        l.setAlcoholPercent(0);
     }
 
     /**
      * getter and setter for attributes of Juice
      */
-
-    public SimpleDrink getsD() {
-        return sD;
-    }
-
-    public void setsD(SimpleDrink sD) {
-        this.sD = sD;
-    }
 
     public String getMainIngredient() {
         return mainIngredient;
@@ -86,6 +72,29 @@ public class Juice extends SimpleDrink {
 
     public void setIsDilutedWithWater(boolean isDilutedWithWater) {
         this.isDilutedWithWater = isDilutedWithWater;
+    }
+
+    @Override
+    public double getVolume() {
+        if (this.isDilutedWithWater){
+            return super.getVolume() + 0.25;
+        } else {
+            return super.getVolume();
+        }
+    }
+
+    @Override
+    public boolean isAlcoholic() {
+        return super.isAlcoholic();
+    }
+
+    @Override
+    public double getAlcoholPercent() {
+        if (this.isDilutedWithWater ){
+            return this.getAlcoholPercent() / 2;
+        } else{
+            return super.getAlcoholPercent();
+        }
     }
 
     /**
