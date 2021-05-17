@@ -77,7 +77,7 @@ public class Juice extends SimpleDrink {
     @Override
     public double getVolume() {
         if (this.isDilutedWithWater){
-            return super.getVolume() + 0.25;
+            return super.getVolume() * 2;
         } else {
             return super.getVolume();
         }
@@ -91,7 +91,7 @@ public class Juice extends SimpleDrink {
     @Override
     public double getAlcoholPercent() {
         if (this.isDilutedWithWater ){
-            return this.getAlcoholPercent() / 2;
+            return Math.round(super.getAlcoholPercent() * 100.0 / 2) /100.0;
         } else{
             return super.getAlcoholPercent();
         }

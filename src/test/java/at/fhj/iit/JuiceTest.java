@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Contains test cases regarding the {@link Juice} class and its methods
  *
  * @author Daniela Pock
- * @version 2.0, 24.04.2021
+ * @version 2.0, 17.05.2021
  * @see Juice
  * @since v2.0
  */
@@ -25,23 +25,10 @@ public class JuiceTest {
     @BeforeEach
     void setup()
     {
-        Liquid juice = new Liquid("applejuice", 0.50, 0.00);
-        j = new Juice("applejuice", juice, "apple", 17.5,true);
+        Liquid juice = new Liquid("applejuice", 0.25, 2.00);
+        j = new Juice("applejuice", juice, "apple", 17.5,false);
     }
 
-    /**
-     * Phase: Exercise
-     * Test for setsD and getsD
-     */
-    @Test
-    @DisplayName("setsDAndgetsDTest")
-    void setsDandGetsDTest(){
-        Liquid l = new Liquid("liquid2", 0.7, 0.0);
-        SimpleDrink sd = new SimpleDrink("liquid2", l);
-        j.setsD(sd);
-        // Phase: Verify
-        assertSame(sd, j.getsD());
-    }
 
     /**
      * Phase: Exercise
@@ -97,7 +84,7 @@ public class JuiceTest {
     @DisplayName("getIsDilutedWithWaterTest")
     void getIsDilutedWithWaterTest(){
         // Phase: Verify
-        assertEquals(true, j.getIsDilutedWithWater());
+        assertFalse(j.getIsDilutedWithWater());
     }
 
     /**
@@ -109,7 +96,7 @@ public class JuiceTest {
     void setIsDilutedWithWaterTest(){
         j.setIsDilutedWithWater(false);
         // Phase: Verify
-        assertEquals(false, j.getIsDilutedWithWater());
+        assertFalse(j.getIsDilutedWithWater());
     }
 
     /**
@@ -120,10 +107,90 @@ public class JuiceTest {
     @DisplayName("informationToStringTest")
     void informationToStringTest(){
         // Phase: Verify
-        assertEquals("The main ingredient of the juice is: apple, sugar content in percent: 17.5%, is diluted with water: true",
-                j.informationToString(j));
+        assertEquals("The main ingredient of the juice is: apple, sugar content in percent: 17.5%, is diluted with water: false",
+                j.informationToString());
     }
 
+    /**
+     * Phase: Exercise
+     * Test 1 for getVolume() of Juice
+     * for Juice not Diluted with Water
+     */
+    @Test
+    @DisplayName("getVolume() of Juice ifNotDilutedWithWater Test")
+    void getVolumeOfJuiceTestNotDiluted(){
+
+
+        // Phase: Verify
+        assertEquals(0.25, j.getVolume());
+    }
+
+    /**
+     * Phase: Exercise
+     * Test 2 for getVolume() of Juice
+     * for Juice diluted with water
+     */
+    @Test
+    @DisplayName("getVolume() of Juice ifDilutedWithWater Test")
+    void getVolumeOfJuiceTestDiluted(){
+        j.setIsDilutedWithWater(true);
+        // Phase: Verify
+        assertEquals(0.5, j.getVolume());
+    }
+
+    /**
+     * Phase: Exercise
+     * Test for isAlcoholic() of Juice
+     * for nonAlcoholic Juice
+     */
+    @Test
+    @DisplayName("isAlcoholic() of Juice NonAlcoholic Test")
+    void isAlcoholicOfJuiceNonAlcoholicTest(){
+        // create Juice with 0 alcoholPercent
+        Liquid juice2 = new Liquid("orangejuice", 0.25, 0.00);
+        j = new Juice("orangejuice", juice2, "orange", 20.0, true);
+        // Phase: Verify
+        assertFalse(j.isAlcoholic());
+    }
+
+    /**
+     * Phase: Exercise
+     * Test for isAlcoholic() of Juice
+     * for Alcoholic Juice
+     */
+    @Test
+    @DisplayName("isAlcoholic() of Juice Alcoholic Test")
+    void isAlcoholicOfJuiceAlcoholicTest(){
+        // Phase: Verify
+        assertTrue(j.isAlcoholic());
+    }
+
+
+    /**
+     * Phase: Exercise
+     * Test for getAlcoholPercent() of Juice
+     * if not diluted with water
+     */
+    @Test
+    @DisplayName("getAlcoholPercent() of Juice Not Diluted Test")
+    void getAlcoholPercentOfJuiceNotDilutedTest(){
+        // Phase: Verify
+        assertEquals(2.00, j.getAlcoholPercent());
+    }
+
+    /**
+     * Phsae: Exercise
+     * Test for getAlcoholPercent() of Juice
+     * if diluted with water
+     */
+    @Test
+    @DisplayName("getAlcoholPercent() of Juice Diluted Test")
+    void getAlcoholPercentOfJuiceDilutedTest(){
+        j.setIsDilutedWithWater(true);
+        // Phase: Verify
+        assertEquals(1.00, j.getAlcoholPercent());
+    }
 }
+
 
 
