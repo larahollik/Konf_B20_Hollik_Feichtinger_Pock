@@ -26,7 +26,7 @@ public class Main {
 
         Liquid juice = new Liquid("juice", 1, 0);
         Juice j = new Juice("applejuice", juice, "apple", 17.20, true);
-        System.out.println(j.toString() + ", " + Juice.informationToString(j));
+        System.out.println(j.toString() + ", " + j.informationToString());
 
         System.out.println("\n"+"*".repeat(50)+"\n");
 
