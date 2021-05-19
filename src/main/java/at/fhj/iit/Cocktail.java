@@ -8,7 +8,7 @@ import java.util.List;
  * This class contains all the relevant information for creating a cocktail. It is a derived class that inherits from the abstract class Drink.
  *
  * @author Lara Mae Hollik
- * Last CHange: <18.04.2021>
+ * Last CHange: <19.05.2021>
  */
 
 public class Cocktail extends Drink {
@@ -149,8 +149,8 @@ public class Cocktail extends Drink {
     @Override
     public double getVolume() {
         double volume = 0.00;
-        for(int i = 0; i < liquids.size(); i++) {
-            volume += liquids.get(i).getVolume();
+        for(int i = 0; i < this.liquids.size(); i++) {
+            volume += this.liquids.get(i).getVolume();
         }
         return volume;
     }
@@ -164,9 +164,9 @@ public class Cocktail extends Drink {
     @Override
     public double getAlcoholPercent() {
         double alcohol = 0.00;
-        for(int i = 0; i < liquids.size(); i++) {
-            if (liquids.get(i).getAlcoholPercent() > 0) {
-                alcohol += (liquids.get(i).getAlcoholPercent() / 100 * this.liquids.get(i).getVolume());
+        for(int i = 0; i < this.liquids.size(); i++) {
+            if (this.liquids.get(i).getAlcoholPercent() > 0) {
+                alcohol += (this.liquids.get(i).getAlcoholPercent() / 100 * this.liquids.get(i).getVolume());
             }
         }
 

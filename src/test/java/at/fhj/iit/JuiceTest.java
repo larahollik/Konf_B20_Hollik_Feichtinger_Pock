@@ -179,7 +179,7 @@ public class JuiceTest {
     }
 
     /**
-     * Phsae: Exercise
+     * Phase: Exercise
      * Test for getAlcoholPercent() of Juice
      * if diluted with water
      */

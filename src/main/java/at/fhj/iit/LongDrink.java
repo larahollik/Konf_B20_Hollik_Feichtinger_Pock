@@ -7,7 +7,7 @@ import java.util.List;
  * It is a derived class that inherits from the class {@link Cocktail}
  *
  * @author Viktoria Feichtinger
- * @version 2.0, 20.04.2021
+ * @version 2.0, 19.05.2021
  * @see Cocktail
  * @since v1.0
  */
@@ -37,10 +37,7 @@ public class LongDrink extends Cocktail {
        } else {
            System.out.println("To many liquids for a Longdrink!");
        }
-
-
     }
-
 
     public int getIceCubes() {
         if (getVolume()>0.3) {
@@ -48,24 +45,27 @@ public class LongDrink extends Cocktail {
         } else {
             return 2;
         }
-
     }
+
     @Override
     public double getVolume() {
-        return super.getVolume();
+        double volume = super.getVolume();
+        volume += (0.02 * this.iceCube);
+        return volume;
     }
 
     @Override
     public double getAlcoholPercent() {
-        return super.getAlcoholPercent();
+        double alcoholPercent = super.getAlcoholPercent();
+        alcoholPercent -= (0.01 * this.iceCube);
+
+        return alcoholPercent;
     }
 
     @Override
     public boolean isAlcoholic() {
         return super.isAlcoholic();
     }
-
-
 
     /**
      * Classification of the CocktailType that are valid for all object from that class
@@ -78,9 +78,9 @@ public class LongDrink extends Cocktail {
      * @return String of given information
      */
     public String toString() {
-        return name + " is a " + getFlavour() + " " + cocktailType +
-                " served in a " + getGlass() + " glass with "+getIceCubes() + " ice cubes."
-                + "\nMostly it has a volume of " + getVolume()
-                + " with an alcohol percentage of " + getAlcoholPercent() + ".";
+        return name + " is a " + super.getFlavour() + " " + cocktailType +
+                " served in a " + super.getGlass() + " glass with "+ getIceCubes() + " ice cubes."
+                + "\nMostly it has a volume of " + super.getVolume()
+                + " with an alcohol percentage of " + super.getAlcoholPercent() + ".";
     }
 }
