@@ -32,7 +32,7 @@ public class Cocktail extends Drink {
     /**
      * volume of the Cocktail in liter.
      */
-    private double volume;
+    private double volumeCocktail;
     /**
      * alcoholPercent of the Cocktail (in percent eg. 28)
      */
@@ -50,6 +50,9 @@ public class Cocktail extends Drink {
      */
     private CocktailType cocktailType;
 
+    private List<Liquid> liquids = new ArrayList<Liquid>();
+
+
     /**
      * Creates a Cocktail object with given name from the superclass Drink, e.g. Pina Colada, Mojito,
      * with the identified flavour, e. g. sour, sweet, creamy...,
@@ -58,15 +61,15 @@ public class Cocktail extends Drink {
      * @param name           name of the drink
      * @param flavour        flavour of the Cocktail
      * @param glass          type of glass of the Cocktail
-     * @param volume         volume of the Cocktail
-     * @param alcoholPercent alcoholPercent of the Cocktail
      */
-    public Cocktail(String name, String flavour, String glass, double volume, double alcoholPercent) {
+    public Cocktail(String name, String flavour, String glass, List<Liquid> liquids ) {
         super(name);
         this.flavour = flavour;
         this.glass = glass;
-        this.volume = volume;
-        this.alcoholPercent = alcoholPercent;
+        this.liquids = liquids;
+        this.volumeCocktail = getVolume();
+        this.alcoholPercent = getAlcoholPercent();
+
     }
 
     /**
@@ -131,17 +134,13 @@ public class Cocktail extends Drink {
      */
     @Override
     public double getVolume() {
-        return this.volume;
+        double volume = 0.00;
+        for(int i = 0; i < liquids.size(); i++) {
+            volume += liquids.get(i).getVolume();
+        }
+        return volume;
     }
 
-    /**
-     * Setter for volume
-     *
-     * @param volume new volume
-     */
-    public void setVolume(double volume) {
-        this.volume = volume;
-    }
 
     /**
      * Calculates and returns the alcohol percentage
@@ -150,17 +149,17 @@ public class Cocktail extends Drink {
      */
     @Override
     public double getAlcoholPercent() {
-        return this.alcoholPercent;
+        double alcohol = 0.00;
+        for(int i = 0; i < liquids.size(); i++) {
+            if (liquids.get(i).getAlcoholPercent() > 0) {
+                alcohol += (liquids.get(i).getAlcoholPercent() / 100 * this.liquids.get(i).getVolume());
+            }
+        }
+
+        return Math.round(alcohol *100.0 / getVolume() * 100) / 100.0 ;
     }
 
-    /**
-     * Setter for alcoholPercent
-     *
-     * @param alcoholPercent new alcoholPercent
-     */
-    public void setAlcoholPercent(double alcoholPercent) {
-        this.alcoholPercent = alcoholPercent;
-    }
+
 
     /**
      * Gives information if drink is alcoholic or not
@@ -275,7 +274,7 @@ public class Cocktail extends Drink {
      * the glass and the decoration.
      */
     public String printCocktailMessage() {
-        return "A " + flavour + " " + cocktailType + " called " + name + " with " + getAlcoholPercent() + " percent alcohol by volume, " + volume + " liter of volume and served in a " + glass + " glass " +
+        return "A " + flavour + " " + cocktailType + " called " + name + " with " + getAlcoholPercent() + " percent alcohol by volume, " + volumeCocktail + " liter of volume and served in a " + glass + " glass " +
                 "decorated with a " + getAllDecorations();
     }
 

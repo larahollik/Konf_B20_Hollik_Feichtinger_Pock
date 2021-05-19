@@ -17,10 +17,19 @@ public class Main {
 
         System.out.println("\n"+"*".repeat(50)+"\n");
 
-        Cocktail c = new Cocktail("Pina Colada", "creamy", "Hurricane", 0.300, 28.0);
-        c.setCocktailType(Cocktail.CocktailType.Dessert_Cocktail);
-        c.addDecoration("pineapple");
-        System.out.println(c.printCocktailMessage());
+        List<Liquid> liquids = new ArrayList<Liquid>();
+        Liquid gin = new Liquid("gin", 0.2, 45);
+        liquids.add(gin);
+        Liquid tonic = new Liquid("tonic", 0.3, 0.00);
+        liquids.add(tonic);
+
+        Cocktail ginTonic = new Cocktail("Gin Tonic", "sour", "Old Fashioned", liquids);
+        ginTonic.addDecoration("lemon");
+        ginTonic.setCocktailType(Cocktail.CocktailType.Shortdrink);
+        System.out.println(ginTonic.printCocktailMessage());
+
+
+
 
         System.out.println("\n"+"*".repeat(50)+"\n");
 
@@ -30,8 +39,8 @@ public class Main {
 
         System.out.println("\n"+"*".repeat(50)+"\n");
 
-        Drink lD = new LongDrink("Basil Smash", "sour", "Hurricane", 0.33, 12.0);
-        System.out.println(lD);
+//        Drink lD = new LongDrink("Basil Smash", "sour", "Hurricane", 0.33, 12.0);
+//        System.out.println(lD);
 
         
     }

@@ -1,5 +1,7 @@
 package at.fhj.iit;
 
+import java.util.List;
+
 /**
  * Contains all relevant information to create a long drink
  * It is a derived class that inherits from the class {@link Cocktail}
@@ -9,7 +11,11 @@ package at.fhj.iit;
  * @see Cocktail
  * @since v1.0
  */
-public class LongDrink extends Cocktail {
+public class LongDrink extends Cocktail{
+
+    public LongDrink(String name, String flavour, String glass, List<Liquid> liquids) {
+        super(name, flavour, glass, liquids);
+    }
 
     /**
      * Creates a Cocktail object with given name from superclass {@link Cocktail}, e.g. Pina Colada, Mojito,
@@ -22,9 +28,7 @@ public class LongDrink extends Cocktail {
      * @param volume            volume of drink
      * @param alcoholPercent    alcohol percentage that contains the drink
      */
-    public LongDrink(String name, String flavour, String glass, double volume, double alcoholPercent) {
-        super(name, flavour, glass, volume, alcoholPercent);
-    }
+
 
     /**
      * Contains the alcoholic ingredients
