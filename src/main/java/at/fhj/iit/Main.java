@@ -39,6 +39,14 @@ public class Main {
 
         System.out.println("\n"+"*".repeat(50)+"\n");
 
+        List<Liquid> liquids2 = new ArrayList<Liquid>();
+        Liquid vodka = new Liquid("vodka", 0.1, 40);
+        liquids.add(vodka);
+        Liquid orangeJuice = new Liquid("orange juice", 0.3, 0.00);
+        liquids.add(orangeJuice);
+        Drink vodkaOrange = new LongDrink("Vodka Orange", "sweet", liquids2 );
+        System.out.println(vodkaOrange.toString());
+
 //        Drink lD = new LongDrink("Basil Smash", "sour", "Hurricane", 0.33, 12.0);
 //        System.out.println(lD);
 

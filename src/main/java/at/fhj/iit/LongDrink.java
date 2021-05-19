@@ -11,48 +11,61 @@ import java.util.List;
  * @see Cocktail
  * @since v1.0
  */
-public class LongDrink extends Cocktail{
+public class LongDrink extends Cocktail {
 
-    public LongDrink(String name, String flavour, String glass, List<Liquid> liquids) {
-        super(name, flavour, glass, liquids);
-    }
+    private int iceCube;
 
     /**
      * Creates a Cocktail object with given name from superclass {@link Cocktail}, e.g. Pina Colada, Mojito,
      * with the identified flavour, e.g. sour, sweet, creamy...,
      * with the type of glass, e.g. Balloon, Old Fashion...
      *
-     * @param name              name of the drink
-     * @param flavour           flavour of the cocktail
-     * @param glass             type of glass of the cocktail
-     * @param volume            volume of drink
-     * @param alcoholPercent    alcohol percentage that contains the drink
+     * @param name    name of the drink
+     * @param flavour flavour of the cocktail
+     * @param liquids list of liquids
      */
+    public LongDrink(String name, String flavour, List<Liquid> liquids) {
+        super(name);
+        if(liquids.size() <= 2) {
+           super.name = name;
+           super.setFlavour(flavour);
+           super.setGlass("Hurricane");
+           super.setLiquids(liquids);
+           this.iceCube = getIceCubes();
+           super.getAlcoholPercent();
+           super.getVolume();
+       } else {
+           System.out.println("To many liquids for a Longdrink!");
+       }
 
 
-    /**
-     * Contains the alcoholic ingredients
-     *
-     * @return String of alcoholic ingredients, if none is given, it has a default setup
-     */
-    public String ingredientsAlcohol() {
-        return switch (name) {
-            case "Basil Smash" -> "\n - alcoholic: Gin.";
-            default -> "\n - alcoholic: The ingredients of the drink are unknown.";
-        };
     }
 
-    /**
-     * Contains the non-alcoholic ingredients
-     *
-     * @return String of non-alcoholic ingredients, if none information given, it has a default setup
-     */
-    public String ingredientsNonAlcohol() {
-        return switch (name) {
-            case "Basil Smash" -> "\n - non-alcoholic: Lemon, sugar syrup, soda water and ice cubes.";
-            default -> "\n - non-alcoholic: The ingredients of the drink are unknown.";
-        };
+
+    public int getIceCubes() {
+        if (getVolume()>0.3) {
+            return 3;
+        } else {
+            return 2;
+        }
+
     }
+    @Override
+    public double getVolume() {
+        return super.getVolume();
+    }
+
+    @Override
+    public double getAlcoholPercent() {
+        return super.getAlcoholPercent();
+    }
+
+    @Override
+    public boolean isAlcoholic() {
+        return super.isAlcoholic();
+    }
+
+
 
     /**
      * Classification of the CocktailType that are valid for all object from that class
@@ -66,8 +79,7 @@ public class LongDrink extends Cocktail{
      */
     public String toString() {
         return name + " is a " + getFlavour() + " " + cocktailType +
-                " served in a " + getGlass() + " glass "
-                + "and has the following ingredients:" + ingredientsNonAlcohol() + ingredientsAlcohol()
+                " served in a " + getGlass() + " glass with "+getIceCubes() + " ice cubes."
                 + "\nMostly it has a volume of " + getVolume()
                 + " with an alcohol percentage of " + getAlcoholPercent() + ".";
     }

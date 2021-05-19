@@ -61,6 +61,7 @@ public class Cocktail extends Drink {
      * @param name           name of the drink
      * @param flavour        flavour of the Cocktail
      * @param glass          type of glass of the Cocktail
+     * @param liquids        list of liquids
      */
     public Cocktail(String name, String flavour, String glass, List<Liquid> liquids ) {
         super(name);
@@ -70,6 +71,10 @@ public class Cocktail extends Drink {
         this.volumeCocktail = getVolume();
         this.alcoholPercent = getAlcoholPercent();
 
+    }
+
+    public Cocktail(String name) {
+        super(name);
     }
 
     /**
@@ -126,6 +131,15 @@ public class Cocktail extends Drink {
         this.cocktailType = cocktailType;
     }
 
+
+    /**
+     * Setter for liquids
+     *
+     * @param liquids new liquid List
+     */
+    public void setLiquids(List<Liquid> liquids) {
+        this.liquids = liquids;
+    }
 
     /**
      * Calculates and returns volume of drink
