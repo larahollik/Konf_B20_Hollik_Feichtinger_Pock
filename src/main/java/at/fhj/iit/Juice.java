@@ -15,11 +15,6 @@ package at.fhj.iit;
 public class Juice extends SimpleDrink {
 
     /**
-     * main ingredient of the juice (e.g. a fruit, vegetable,...)
-     */
-    private String mainIngredient;
-
-    /**
      * sugar content of the juice in percent
      */
 
@@ -34,14 +29,12 @@ public class Juice extends SimpleDrink {
      * Creates a SimpleDrink object with given name and liquid
      * @param name name of drink
      * @param l    only one liquid in drink, because it's a simple drink an not e.g. a cocktail
-     * @param mainIngredient main ingredient of the juice
      * @param sugarPercent  sugar content in percent
      * @param isDilutedWithWater juice can be diluted with water
      */
 
-    Juice(String name, Liquid l, String mainIngredient, double sugarPercent, boolean isDilutedWithWater) {
+    Juice(String name, Liquid l, double sugarPercent, boolean isDilutedWithWater) {
         super(name,l);
-        this.mainIngredient = mainIngredient;
         this.sugarPercent = sugarPercent;
         this.isDilutedWithWater = isDilutedWithWater;
     }
@@ -49,14 +42,6 @@ public class Juice extends SimpleDrink {
     /**
      * getter and setter for attributes of Juice
      */
-
-    public String getMainIngredient() {
-        return mainIngredient;
-    }
-
-    public void setMainIngredient(String mainIngredient) {
-        this.mainIngredient = mainIngredient;
-    }
 
     public double getSugarPercent() {
         return sugarPercent;
@@ -102,6 +87,11 @@ public class Juice extends SimpleDrink {
      * @return info as string
      */
     public String informationToString(){
-        return "The main ingredient of the juice is: " + this.mainIngredient + ", sugar content in percent: " + this.sugarPercent + "%, is diluted with water: " + this.isDilutedWithWater;
+        if(isAlcoholic()){
+            return "The juice is a : "  + name + ", sugar content in percent: " + this.sugarPercent + ", \n" +
+                    "is diluted with water: " + this.isDilutedWithWater + " and is alcoholic.";
+        }
+        return "The juice is a : "  + name + ", sugar content in percent: " + this.sugarPercent + ", \n" +
+                "is diluted with water: " + this.isDilutedWithWater + " and is non-alcoholic.";
     }
 }

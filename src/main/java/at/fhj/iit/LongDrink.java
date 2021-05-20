@@ -16,28 +16,32 @@ public class LongDrink extends Cocktail {
     private int iceCube;
 
     /**
-     * Creates a Cocktail object with given name from superclass {@link Cocktail}, e.g. Pina Colada, Mojito,
+     * Creates a Longdrink object with given name from superclass {@link Cocktail}, e.g. Pina Colada, Mojito,
      * with the identified flavour, e.g. sour, sweet, creamy...,
-     * with the type of glass, e.g. Balloon, Old Fashion...
+     * with the type of glass Hurricane and the CocktailType Longdrink
      *
      * @param name    name of the drink
      * @param flavour flavour of the cocktail
      * @param liquids list of liquids
      */
-    public LongDrink(String name, String flavour, List<Liquid> liquids) {
-        super(name);
-        if(liquids.size() <= 2) {
-           super.name = name;
-           super.setFlavour(flavour);
-           super.setGlass("Hurricane");
-           super.setLiquids(liquids);
-           this.iceCube = getIceCubes();
-           super.getAlcoholPercent();
-           super.getVolume();
-       } else {
-           System.out.println("To many liquids for a Longdrink!");
-       }
+    public LongDrink(String name, String flavour, List<Liquid> liquids){
+        super(name, flavour, "Hurricane", liquids, CocktailType.Longdrink);
+        this.iceCube = getIceCubes();
     }
+
+//    public LongDrink(String name, String flavour, List<Liquid> liquids) {
+//        super(name);
+//        if(liquids.size() <= 2) {
+//           super.name = name;
+//           super.setFlavour(flavour);
+//           super.setGlass("Hurricane");
+//           super.setLiquids(liquids);
+//           super.setCocktailType(CocktailType.Longdrink);
+//           this.iceCube = getIceCubes();
+//       } else {
+//           System.out.println("To many liquids for a Longdrink!");
+//       }
+//    }
 
     public int getIceCubes() {
         if (getVolume()>0.3) {
@@ -68,19 +72,14 @@ public class LongDrink extends Cocktail {
     }
 
     /**
-     * Classification of the CocktailType that are valid for all object from that class
-     */
-    private final CocktailType cocktailType = CocktailType.Longdrink;
-
-    /**
      * Contains given information from the class about a specific long drink
      *
      * @return String of given information
      */
     public String toString() {
-        return name + " is a " + super.getFlavour() + " " + cocktailType +
+        return name + " is a " + super.getFlavour() + " " + getCocktailType() +
                 " served in a " + super.getGlass() + " glass with "+ getIceCubes() + " ice cubes."
                 + "\nMostly it has a volume of " + super.getVolume()
-                + " with an alcohol percentage of " + super.getAlcoholPercent() + ".";
+                + " with an alcohol percentage of " + super.getAlcoholPercent() + "%.";
     }
 }

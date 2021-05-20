@@ -26,31 +26,7 @@ public class JuiceTest {
     void setup()
     {
         Liquid juice = new Liquid("applejuice", 0.25, 2.00);
-        j = new Juice("applejuice", juice, "apple", 17.5,false);
-    }
-
-
-    /**
-     * Phase: Exercise
-     * Test for getMainIngredient
-     */
-    @Test
-    @DisplayName("getMainIngredientTest")
-    void getMainIngredientTest(){
-        // Phase: Verify
-        assertEquals("apple", j.getMainIngredient());
-    }
-
-    /**
-     * Phase: Exercise
-     * Test for setMainIngredient
-     */
-    @Test
-    @DisplayName("setMainIngredientTest")
-    void setMainIngredientTest(){
-        j.setMainIngredient("orange");
-        // Phase: Verify
-        assertEquals("orange", j.getMainIngredient());
+        j = new Juice("applejuice", juice,  17.5,false);
     }
 
     /**
@@ -107,7 +83,8 @@ public class JuiceTest {
     @DisplayName("informationToStringTest")
     void informationToStringTest(){
         // Phase: Verify
-        assertEquals("The main ingredient of the juice is: apple, sugar content in percent: 17.5%, is diluted with water: false",
+
+        assertEquals("The juice is a applejuice, sugar content in percent: 17.5%, \nis diluted with water: false and is alcoholic.",
                 j.informationToString());
     }
 
@@ -119,8 +96,6 @@ public class JuiceTest {
     @Test
     @DisplayName("getVolume() of Juice ifNotDilutedWithWater Test")
     void getVolumeOfJuiceTestNotDiluted(){
-
-
         // Phase: Verify
         assertEquals(0.25, j.getVolume());
     }
@@ -148,7 +123,7 @@ public class JuiceTest {
     void isAlcoholicOfJuiceNonAlcoholicTest(){
         // create Juice with 0 alcoholPercent
         Liquid juice2 = new Liquid("orangejuice", 0.25, 0.00);
-        j = new Juice("orangejuice", juice2, "orange", 20.0, true);
+        j = new Juice("orangejuice", juice2, 20.0, true);
         // Phase: Verify
         assertFalse(j.isAlcoholic());
     }

@@ -1,7 +1,6 @@
 package at.fhj.iit;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -23,15 +22,14 @@ public class Main {
         Liquid tonic = new Liquid("tonic", 0.3, 0.00);
         liquids.add(tonic);
 
-        Cocktail ginTonic = new Cocktail("Gin Tonic", "sour", "Old Fashioned", liquids);
+        Cocktail ginTonic = new Cocktail("Gin Tonic", "sour", "Old Fashioned", liquids, Cocktail.CocktailType.Shortdrink);
         ginTonic.addDecoration("lemon");
-        ginTonic.setCocktailType(Cocktail.CocktailType.Shortdrink);
         System.out.println(ginTonic.printCocktailMessage());
 
         System.out.println("\n"+"*".repeat(50)+"\n");
 
         Liquid juice = new Liquid("juice", 1, 4);
-        Juice j = new Juice("applejuice", juice, "apple", 17.20, true);
+        Juice j = new Juice("applejuice", juice, 17.20, true);
         System.out.println(j.toString() + ", " + j.informationToString());
 
         System.out.println("\n"+"*".repeat(50)+"\n");

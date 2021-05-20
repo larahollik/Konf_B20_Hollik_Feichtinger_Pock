@@ -29,17 +29,7 @@ public class Cocktail extends Drink {
      * a list of possible Cocktail decorations, because each Cocktail type gets differently decorated.
      */
     private List<String> decorations = new ArrayList<String>();
-    /**
-     * volume of the Cocktail in liter.
-     */
-    private double volumeCocktail;
-    /**
-     * alcoholPercent of the Cocktail (in percent eg. 28)
-     */
-    private double alcoholPercent;
-    /**
-     * flavour of the Cocktail, to identify the taste and giving a reference to the Cocktail type.
-     */
+
     private String flavour;
     /**
      * type of the glass, because every Cocktail type is served in a different glass.
@@ -63,14 +53,12 @@ public class Cocktail extends Drink {
      * @param glass          type of glass of the Cocktail
      * @param liquids        list of liquids
      */
-    public Cocktail(String name, String flavour, String glass, List<Liquid> liquids ) {
+    public Cocktail(String name, String flavour, String glass, List<Liquid> liquids, CocktailType cocktailType ) {
         super(name);
         this.flavour = flavour;
         this.glass = glass;
         this.liquids = liquids;
-        this.volumeCocktail = getVolume();
-        this.alcoholPercent = getAlcoholPercent();
-
+        this.cocktailType = cocktailType;
     }
 
     public Cocktail(String name) {
@@ -182,7 +170,7 @@ public class Cocktail extends Drink {
      */
     @Override
     public boolean isAlcoholic() {
-        if (alcoholPercent > 0.0) {
+        if (getAlcoholPercent() > 0.0) {
             return true;
         } else {
             return false;
@@ -288,7 +276,8 @@ public class Cocktail extends Drink {
      * the glass and the decoration.
      */
     public String printCocktailMessage() {
-        return "A " + flavour + " " + cocktailType + " called " + name + " with " + getAlcoholPercent() + " percent alcohol by volume, " + volumeCocktail + " liter of volume and served in a " + glass + " glass " +
+        return "A " + flavour + " " + cocktailType + " called " + name + " with " + getAlcoholPercent() +
+                " percent alcohol by volume, " + getVolume() + " liter of volume and served in a " + glass + " glass " +
                 "decorated with a " + getAllDecorations();
     }
 
