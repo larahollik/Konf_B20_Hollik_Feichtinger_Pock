@@ -3,6 +3,15 @@ package at.fhj.iit;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * class CashRegister
+ * represents a CashRegister
+ *
+ * @author: Daniela Pock
+ * @version v3.0, 28.05.2021
+ * @since v3.0
+ */
+
 public class CashRegister {
     private int articleNr = 0;
     private Drink drink;
