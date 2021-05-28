@@ -5,6 +5,6 @@ import java.util.Date;
 public interface Article {
     double calcPrice();
 
-    void addArticle(Date day, String seller);
+    void addArticle(String day, String seller);
 
 }

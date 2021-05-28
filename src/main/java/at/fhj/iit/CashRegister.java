@@ -1,7 +1,6 @@
 package at.fhj.iit;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class CashRegister {
@@ -9,7 +8,7 @@ public class CashRegister {
     private Drink drink;
     private double price;
     private String seller;
-    private Date day;
+    private String day;
 
     private static List<CashRegister> sells = new ArrayList<CashRegister>();
 
@@ -20,7 +19,7 @@ public class CashRegister {
      * @param price   price of the drink
      * @param seller  seller of the drink
      */
-    public CashRegister(Date day, Drink drink, double price, String seller) {
+    public CashRegister(String day, Drink drink, double price, String seller) {
         this.articleNr++;
         this.day = day;
         this.drink = drink;
@@ -41,11 +40,11 @@ public class CashRegister {
         this.articleNr = articleNr;
     }
 
-    public Date getDay() {
+    public String getDay() {
         return day;
     }
 
-    public void setDay(Date day) {
+    public void setDay(String day) {
         this.day = day;
     }
 
@@ -107,7 +106,7 @@ public class CashRegister {
     public static double salesMildAlc(){
         double sales = 0;
         for (int i = 0; i< sells.size(); i++){
-            if(sells.get(i).getDrink().getAlcoholPercent() <= 16){
+            if(sells.get(i).getDrink().isAlcoholic() && sells.get(i).getDrink().getAlcoholPercent() <= 16){
                 sales += sells.get(i).getPrice();
             }
         }
@@ -135,7 +134,7 @@ public class CashRegister {
      *
      * @return sum of sales on a certain day
      */
-    public static double salesOnDay(Date day){
+    public static double salesOnDay(String day){
         double sales = 0;
         for (int i = 0; i< sells.size(); i++){
             if(sells.get(i).getDay() == day){
@@ -168,7 +167,7 @@ public class CashRegister {
      * @param seller   last name of the seller
      * @return         sum of sales on a certain day of a certain seller
      */
-    public static double salesOfPersonOnDay(Date day, String seller){
+    public static double salesOfPersonOnDay(String day, String seller){
         double sales = 0;
         for (int i = 0; i< sells.size(); i++){
             if(sells.get(i).getDay() == day && sells.get(i).getSeller().equals(seller)){

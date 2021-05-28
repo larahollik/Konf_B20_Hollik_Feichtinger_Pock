@@ -62,14 +62,14 @@ public class SimpleDrink extends Drink implements Article{
 
     /**
      * calculates the price of a Simple Drink based on volume and alcoholPercent
-     * per 1% alc costs 0.1€
-     * per 0.01l costs 0.005€
+     * per 1% alc costs 0.2€
+     * per 1l vol costs 3€
      *
      * @return price of the article in form of a price
      */
     @Override
     public double calcPrice() {
-        return (getVolume()*0.005) + (getAlcoholPercent()*0.1);
+        return (getVolume()*3.0) + (getAlcoholPercent()*0.2);
     }
 
     /**
@@ -79,7 +79,7 @@ public class SimpleDrink extends Drink implements Article{
      * @param seller   last name of the seller
      */
     @Override
-    public void addArticle(Date day, String seller) {
+    public void addArticle(String day, String seller) {
         CashRegister.getSells().add(new CashRegister(day, this, calcPrice(), seller));
     }
 

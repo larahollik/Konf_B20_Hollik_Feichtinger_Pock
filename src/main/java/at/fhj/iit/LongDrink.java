@@ -79,21 +79,21 @@ public class LongDrink extends Cocktail implements Article {
     public String toString() {
         return name + " is a " + super.getFlavour() + " " + getCocktailType() +
                 " served in a " + super.getGlass() + " glass with "+ getIceCubes() + " ice cubes."
-                + "\nMostly it has a volume of " + super.getVolume()
-                + " with an alcohol percentage of " + super.getAlcoholPercent() + "%.";
+                + "\nMostly it has a volume of " + getVolume()
+                + " with an alcohol percentage of " + getAlcoholPercent() + "%.";
     }
 
     /**
      * calculates the price of a Longdrink
-     * per 0.5l (vol) cost 5.00€
-     * per 1% alc costs 0.1€
+     * per 1l (vol) cost 10€
+     * per 1% alc costs 0.2€
      * per icecube costs 0.1€
      *
      * @return
      */
     @Override
     public double calcPrice() {
-        return (getVolume()*0.01) + (getAlcoholPercent()*0.1) + (getIceCubes()*0.1);
+        return (getVolume()*10) + (getAlcoholPercent()*0.2) + (getIceCubes()*0.1);
     }
 
     /**
@@ -103,7 +103,7 @@ public class LongDrink extends Cocktail implements Article {
      * @param seller   last name of the seller
      */
     @Override
-    public void addArticle(Date day, String seller) {
+    public void addArticle(String day, String seller) {
         CashRegister.getSells().add(new CashRegister(day, this, calcPrice(), seller));
     }
 

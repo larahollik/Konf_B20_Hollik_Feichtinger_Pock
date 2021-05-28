@@ -1,13 +1,12 @@
 package at.fhj.iit;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args){
-
-        List<String> sells = new ArrayList<String>();
 
         Liquid l = new Liquid("Wein", 0.125, 13);
         System.out.println(l.getName());
@@ -30,9 +29,9 @@ public class Main {
 
         System.out.println("\n"+"*".repeat(50)+"\n");
 
-        Liquid juice = new Liquid("juice", 1, 4);
+        Liquid juice = new Liquid("juice", 0.5, 0);
         Juice j = new Juice("applejuice", juice, 17.20, true);
-        System.out.println(j.toString() + ", " + j.informationToString());
+        System.out.println(j.informationToString());
 
         System.out.println("\n"+"*".repeat(50)+"\n");
 
@@ -41,9 +40,29 @@ public class Main {
         liquids2.add(vodka);
         Liquid orangeJuice = new Liquid("orange juice", 0.3, 0.00);
         liquids2.add(orangeJuice);
-        Drink vodkaOrange = new LongDrink("Vodka Orange", "sweet", liquids2 );
+        LongDrink vodkaOrange = new LongDrink("Vodka Orange", "sweet", liquids2 );
         System.out.println(vodkaOrange.toString());
 
+
+        // cash Register short Test und Ablauf!!
+        ginTonic.addArticle("02.04.2021", "Hollik");
+
+        j.addArticle("03.05.2021", "Pock");
+
+        vodkaOrange.addArticle("02.04.2021", "Feichtinger");
+
+
+        System.out.println("\n\nSum of non alcoholic drinks: " + CashRegister.salesNonAlc());
+
+        System.out.println("Sum of mild alcoholic drinks: " + CashRegister.salesMildAlc());
+
+        System.out.println("Sum of strong alcoholic drinks: " + CashRegister.salesStrongAlc());
+
+        System.out.println("Sum of sales of seller Feichtinger: " + CashRegister.salesOfSeller("Feichtinger"));
+
+        System.out.println("Sum of certain day: " + CashRegister.salesOnDay("02.04.2021"));
+
+        System.out.println("Sum of seller Pock on certain day: " + CashRegister.salesOfPersonOnDay("03.05.2021", "Pock"));
 
 
     }

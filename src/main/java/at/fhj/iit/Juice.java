@@ -90,28 +90,27 @@ public class Juice extends SimpleDrink implements Article{
      */
     public String informationToString(){
         if(isAlcoholic()){
-            return "The juice is a : "  + name + ", sugar content in percent: " + this.sugarPercent + ", \n" +
+            return "The juice is a : "  + name + ", vol: " + getVolume()  + "l, sugar content in percent: " + this.sugarPercent + ", \n" +
                     "is diluted with water: " + this.isDilutedWithWater + " and is alcoholic.";
         }
-        return "The juice is a : "  + name + ", sugar content in percent: " + this.sugarPercent + ", \n" +
+        return "The juice is a : "  + name + ", vol: " +getVolume() +"l, sugar content in percent: " + this.sugarPercent + ", \n" +
                 "is diluted with water: " + this.isDilutedWithWater + " and is non-alcoholic.";
     }
 
     /**
      * calculates the price of a Juice
-     * per 0.01l (vol) costs 0.002€
-     * per 1% alc costs 0.1€
+     * per 1l (vol) costs 2€
+     * per 1% alc costs 0.2€
      * if diluted with water -> costs half
      *
      * @return price of the Juice as double
      */
     @Override
     public double calcPrice() {
-
         if (isDilutedWithWater){
-            return ((getVolume()*0.002) + (getAlcoholPercent()*0.1))/2.0;
+            return ((getVolume()*2) + (getAlcoholPercent()*0.2))/2.0;
         }
-        return (getVolume()*0.002) + (getAlcoholPercent()*0.1);
+        return (getVolume()*2) + (getAlcoholPercent()*0.1);
     }
 
     /**
@@ -121,7 +120,7 @@ public class Juice extends SimpleDrink implements Article{
      * @param seller   last name of the seller
      */
     @Override
-    public void addArticle(Date day, String seller) {
+    public void addArticle(String day, String seller) {
         CashRegister.getSells().add(new CashRegister(day, this, calcPrice(), seller));
     }
 
