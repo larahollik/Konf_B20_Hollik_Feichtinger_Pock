@@ -1,4 +1,5 @@
 package at.fhj.iit;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -82,11 +83,29 @@ public class LongDrink extends Cocktail implements Article {
                 + " with an alcohol percentage of " + super.getAlcoholPercent() + "%.";
     }
 
+    /**
+     * calculates the price of a Longdrink
+     * per 0.5l (vol) cost 5.00€
+     * per 1% alc costs 0.1€
+     * per icecube costs 0.1€
+     *
+     * @return
+     */
     @Override
     public double calcPrice() {
-        // Ein Longdring kostet Pro 0.5l 5€
-        // pro 1% Alc 0.1€
-        // pro Eiswürfel 0.1€ dazu
         return (getVolume()*0.01) + (getAlcoholPercent()*0.1) + (getIceCubes()*0.1);
     }
+
+    /**
+     * adds the new sold Longdrink to a list of all sells
+     *
+     * @param day      day of the sell
+     * @param seller   last name of the seller
+     */
+    @Override
+    public void addArticle(Date day, String seller) {
+        CashRegister.getSells().add(new CashRegister(day, this, calcPrice(), seller));
+    }
+
+
 }

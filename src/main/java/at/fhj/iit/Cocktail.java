@@ -1,6 +1,7 @@
 package at.fhj.iit;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -283,12 +284,27 @@ public class Cocktail extends Drink implements Article{
                 "decorated with a " + getAllDecorations();
     }
 
+    /**
+     * calculates the price of Cocktail
+     * per 0.5l (vol) costs 5.0€
+     * per 1% alc costs 0.1€
+     *
+     * @return price of the cocktail as double
+     */
     @Override
     public double calcPrice() {
-        // ähnlich wie Longdrink
-        // Ein Longdring kostet Pro 0.5l 5€
-        // pro 1% Alc 0.1€
         return (getVolume()*0.01) + (getAlcoholPercent()*0.1);
+    }
+
+    /**
+     * adds the new sold Cocktail to a list of all sells
+     *
+     * @param day      day of the sell
+     * @param seller   last name of the seller
+     */
+    @Override
+    public void addArticle(Date day, String seller) {
+        CashRegister.getSells().add(new CashRegister(day, this, calcPrice(), seller));
     }
 }
 

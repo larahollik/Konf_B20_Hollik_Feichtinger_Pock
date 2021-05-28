@@ -1,5 +1,7 @@
 package at.fhj.iit;
 
+import java.util.Date;
+
 /**
  * represents a simple drink liquid which can be used in drinks
  */
@@ -58,9 +60,27 @@ public class SimpleDrink extends Drink implements Article{
         return "Simple Drink called " + name + " with " + l.getAlcoholPercent() + " percent alcohol by volume";
     }
 
+    /**
+     * calculates the price of a Simple Drink based on volume and alcoholPercent
+     * per 1% alc costs 0.1€
+     * per 0.01l costs 0.005€
+     *
+     * @return price of the article in form of a price
+     */
     @Override
     public double calcPrice() {
         return (getVolume()*0.005) + (getAlcoholPercent()*0.1);
+    }
+
+    /**
+     * adds the new sold SimpleDrink to a list of all sells
+     *
+     * @param day      day of the sell
+     * @param seller   last name of the seller
+     */
+    @Override
+    public void addArticle(Date day, String seller) {
+        CashRegister.getSells().add(new CashRegister(day, this, calcPrice(), seller));
     }
 
 }

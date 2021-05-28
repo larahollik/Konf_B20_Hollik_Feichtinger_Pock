@@ -7,6 +7,8 @@ public class Main {
 
     public static void main(String[] args){
 
+        List<String> sells = new ArrayList<String>();
+
         Liquid l = new Liquid("Wein", 0.125, 13);
         System.out.println(l.getName());
         System.out.println(l.getVolume());
@@ -41,6 +43,8 @@ public class Main {
         liquids2.add(orangeJuice);
         Drink vodkaOrange = new LongDrink("Vodka Orange", "sweet", liquids2 );
         System.out.println(vodkaOrange.toString());
+
+
 
     }
 }

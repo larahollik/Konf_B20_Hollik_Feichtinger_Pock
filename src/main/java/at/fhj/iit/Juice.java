@@ -9,6 +9,8 @@ package at.fhj.iit;
  * @since v1.0
  */
 
+import java.util.Date;
+
 /**
  * represents a non-alcoholic SimpleDrink liquid Juice which can be used in drinks
  */
@@ -95,15 +97,32 @@ public class Juice extends SimpleDrink implements Article{
                 "is diluted with water: " + this.isDilutedWithWater + " and is non-alcoholic.";
     }
 
+    /**
+     * calculates the price of a Juice
+     * per 0.01l (vol) costs 0.002€
+     * per 1% alc costs 0.1€
+     * if diluted with water -> costs half
+     *
+     * @return price of the Juice as double
+     */
     @Override
     public double calcPrice() {
-        // pro 0,01 l kostet ein Saft 0.002
-        // pro 1% kostet ein Saft 0.1€
-        // wenn wasser dabei -> um die Hälfte billiger
+
         if (isDilutedWithWater){
             return ((getVolume()*0.002) + (getAlcoholPercent()*0.1))/2.0;
         }
         return (getVolume()*0.002) + (getAlcoholPercent()*0.1);
+    }
+
+    /**
+     * adds the new sold Juice to a list of all sells
+     *
+     * @param day      day of the sell
+     * @param seller   last name of the seller
+     */
+    @Override
+    public void addArticle(Date day, String seller) {
+        CashRegister.getSells().add(new CashRegister(day, this, calcPrice(), seller));
     }
 
 }
