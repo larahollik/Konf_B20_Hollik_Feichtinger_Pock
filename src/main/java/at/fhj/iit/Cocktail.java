@@ -11,7 +11,9 @@ import java.util.List;
  * Last CHange: <19.05.2021>
  */
 
-public class Cocktail extends Drink {
+public class Cocktail extends Drink implements Article{
+
+
     /**
      * a enum of possible Cocktail types, so it's easier to classify the Cocktail.
      */
@@ -281,7 +283,13 @@ public class Cocktail extends Drink {
                 "decorated with a " + getAllDecorations();
     }
 
-
+    @Override
+    public double calcPrice() {
+        // ähnlich wie Longdrink
+        // Ein Longdring kostet Pro 0.5l 5€
+        // pro 1% Alc 0.1€
+        return (getVolume()*0.01) + (getAlcoholPercent()*0.1);
+    }
 }
 
 

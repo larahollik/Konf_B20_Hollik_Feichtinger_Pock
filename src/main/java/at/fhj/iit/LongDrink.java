@@ -1,5 +1,4 @@
 package at.fhj.iit;
-
 import java.util.List;
 
 /**
@@ -11,7 +10,7 @@ import java.util.List;
  * @see Cocktail
  * @since v1.0
  */
-public class LongDrink extends Cocktail {
+public class LongDrink extends Cocktail implements Article {
 
     private int iceCube;
 
@@ -81,5 +80,13 @@ public class LongDrink extends Cocktail {
                 " served in a " + super.getGlass() + " glass with "+ getIceCubes() + " ice cubes."
                 + "\nMostly it has a volume of " + super.getVolume()
                 + " with an alcohol percentage of " + super.getAlcoholPercent() + "%.";
+    }
+
+    @Override
+    public double calcPrice() {
+        // Ein Longdring kostet Pro 0.5l 5€
+        // pro 1% Alc 0.1€
+        // pro Eiswürfel 0.1€ dazu
+        return (getVolume()*0.01) + (getAlcoholPercent()*0.1) + (getIceCubes()*0.1);
     }
 }

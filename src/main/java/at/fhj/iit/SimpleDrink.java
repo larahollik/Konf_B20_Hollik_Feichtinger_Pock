@@ -3,7 +3,7 @@ package at.fhj.iit;
 /**
  * represents a simple drink liquid which can be used in drinks
  */
-public class SimpleDrink extends Drink{
+public class SimpleDrink extends Drink implements Article{
 
     /**
      * uses only one liquid
@@ -57,4 +57,10 @@ public class SimpleDrink extends Drink{
     public String toString(){
         return "Simple Drink called " + name + " with " + l.getAlcoholPercent() + " percent alcohol by volume";
     }
+
+    @Override
+    public double calcPrice() {
+        return (getVolume()*0.005) + (getAlcoholPercent()*0.1);
+    }
+
 }

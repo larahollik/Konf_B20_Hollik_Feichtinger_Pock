@@ -12,7 +12,7 @@ package at.fhj.iit;
 /**
  * represents a non-alcoholic SimpleDrink liquid Juice which can be used in drinks
  */
-public class Juice extends SimpleDrink {
+public class Juice extends SimpleDrink implements Article{
 
     /**
      * sugar content of the juice in percent
@@ -94,4 +94,16 @@ public class Juice extends SimpleDrink {
         return "The juice is a : "  + name + ", sugar content in percent: " + this.sugarPercent + ", \n" +
                 "is diluted with water: " + this.isDilutedWithWater + " and is non-alcoholic.";
     }
+
+    @Override
+    public double calcPrice() {
+        // pro 0,01 l kostet ein Saft 0.002
+        // pro 1% kostet ein Saft 0.1€
+        // wenn wasser dabei -> um die Hälfte billiger
+        if (isDilutedWithWater){
+            return ((getVolume()*0.002) + (getAlcoholPercent()*0.1))/2.0;
+        }
+        return (getVolume()*0.002) + (getAlcoholPercent()*0.1);
+    }
+
 }
