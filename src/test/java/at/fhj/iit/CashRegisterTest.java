@@ -103,41 +103,56 @@ public class CashRegisterTest {
 
     @Test
     void getDrink() {
+        assertEquals(drinkGinTonic, cash.getDrink());
     }
 
     @Test
     void setDrink() {
+        cash.setDrink(drinkPina);
+        assertEquals(drinkPina, cash.getDrink());
     }
 
     @Test
     void getSeller() {
+        assertEquals("Franz", cash.getSeller());
     }
 
     @Test
     void setSeller() {
+        cash.setSeller("Lara");
+        assertEquals("Lara", cash.getSeller());
     }
 
     @Test
     void salesNonAlc() {
+        assertEquals(5.0, CashRegister.salesNonAlc());
     }
 
     @Test
     void salesMildAlc() {
+        assertEquals(0.0, CashRegister.salesMildAlc());
     }
 
     @Test
     void salesStrongAlc() {
+        assertEquals(11.0, CashRegister.salesStrongAlc());
     }
 
     @Test
     void salesOnDay() {
+        assertEquals(11.0, CashRegister.salesOnDay("Tuesday"));
+        assertEquals(0.0, CashRegister.salesOnDay("Sunday"));
     }
 
     @Test
     void salesOfSeller() {
+        assertEquals(5.0, CashRegister.salesOfSeller("Herbert"));
+        assertEquals(11.0, CashRegister.salesOfSeller("Marie"));
     }
 
     @Test
     void salesOfPersonOnDay() {
+        assertEquals(5.0, CashRegister.salesOfPersonOnDay("Saturday", "Herbert"));
+        assertEquals(0.0, CashRegister.salesOfPersonOnDay("Monday", "Herbert"));
     }
 }
