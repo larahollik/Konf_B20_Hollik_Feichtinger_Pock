@@ -1,0 +1,17 @@
+<project name="Cash Register Documentation">
+    <publishDate position="right"/>
+    <version position="left"/>
+    <body>
+
+        <menu name="Overview">
+            <item name="Decisions about the design" href="index.html" />
+            <item name="README" href="README.html" />
+            <item name="Tutorial" href="tutorial.html" />
+            <item name="JUnit-Tests" href="JUnit-Tests.html"/>
+
+        </menu>
+        <menu ref="reports" />
+        <menu ref="parent" />
+        <menu ref="modules" />
+    </body>
+</project>

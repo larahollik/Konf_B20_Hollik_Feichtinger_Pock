@@ -13,6 +13,42 @@
         https://github.com/larahollik/Konf_B20_Hollik_Feichtinger_Pock.git
     </url>
 
+    <developers>
+        <developer>
+            <id>larahollik</id>
+            <name>Lara Hollik</name>
+            <email>lara.hollik@edu.campus02.at</email>
+            <organization>FH Campus 02</organization>
+            <organizationUrl>https://www.campus02.at/wirtschaftsinformatik/bachelor/bsd/</organizationUrl>
+            <roles>
+                <role>Programmer</role>
+            </roles>
+            <timezone>Europe/Vienna</timezone>
+        </developer>
+        <developer>
+            <id>danielapock</id>
+            <name>Daniela Pock</name>
+            <email>daniela.pock@edu.campus02.at</email>
+            <organization>FH Campus 02</organization>
+            <organizationUrl>https://www.campus02.at/wirtschaftsinformatik/bachelor/bsd/</organizationUrl>
+            <roles>
+                <role>Programmer</role>
+            </roles>
+            <timezone>Europe/Vienna</timezone>
+        </developer>
+        <developer>
+            <id>viktoriafeichtinger</id>
+            <name>Viktoria Feichtinger</name>
+            <email>viktoria.feichter@edu.campus02.at</email>
+            <organization>FH Campus 03</organization>
+            <organizationUrl>https://www.campus02.at/wirtschaftsinformatik/bachelor/bsd/</organizationUrl>
+            <roles>
+                <role>Programmer</role>
+            </roles>
+            <timezone>Europe/Vienna</timezone>
+        </developer>
+    </developers>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.comiler.release>15</maven.comiler.release>
@@ -25,18 +61,21 @@
             <version>5.6.2</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.6.2</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <version>5.6.2</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -49,16 +88,25 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-library</artifactId>
             <version>2.2</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
             <version>2.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>1.3</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -73,11 +121,163 @@
                     <release>15</release>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.1</version>
             </plugin>
+
+            <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>at.fhj.iit.Main</mainClass>
+                        </manifest>
+                    </archive>
+                    <!-- will create package at specific directory, just for demonstration JAR usage -->
+                    <outputDirectory>../Hello-World-Test/src/main/resources/</outputDirectory>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <!-- run the executable JAR -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <mainClass>at.fhj.iit.Main</mainClass>
+                </configuration>
+            </plugin>
+
+            <!-- generate information about test coverage -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.6</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <!-- Copy the readme file to the site source files so that a page is generated from it. -->
+                        <!-- https://stackoverflow.com/questions/13748659/how-to-include-github-markdown-files-into-maven-site -->
+                        <id>copy-readme</id>
+                        <phase>pre-site</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/src/site/markdown</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}</directory>
+                                    <includes>
+                                        <include>README.md</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- maven site for documentation -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
         </plugins>
     </build>
+
+    <reporting>
+        <plugins>
+            <!-- maven site for documentation -->
+            <plugin>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+            </plugin>
+
+            <!-- Java Doc within Maven Site Documentation-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <!-- Disable JavaDoc warnings -->
+                    <additionalJOption>-Xdoclint:none</additionalJOption>
+                </configuration>
+            </plugin>
+
+            <!-- Test Coverage from JaCoCo Plugin integration in Maven Site Documentation -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <configuration>
+                    <dataFile>${jacoco.execution.data.file}</dataFile>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <scm>
+        <connection>scm:git:https://github.com/michaelulm/software-configuration-management</connection>
+        <developerConnection>scm:git:https://github.com/michaelulm/software-configuration-management</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/michaelulm/software-configuration-management</url>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>GNU GPLv3 </name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.de.html</url>
+            <distribution>repo</distribution>
+            <comments>I care about sharing improvements.</comments>
+        </license>
+    </licenses>
+
 </project>
+
