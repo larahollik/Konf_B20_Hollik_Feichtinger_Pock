@@ -8,6 +8,7 @@ public class Main {
 
     public static void main(String[] args){
 
+        // create new Drinks
         Liquid l = new Liquid("Wein", 0.125, 13);
         System.out.println(l.getName());
         System.out.println(l.getVolume());
@@ -44,14 +45,14 @@ public class Main {
         System.out.println(vodkaOrange.toString());
 
 
-        // cash Register short Test und Ablauf!!
+        // add sells to the list
         ginTonic.addArticle("02.04.2021", "Hollik");
 
         j.addArticle("03.05.2021", "Pock");
 
         vodkaOrange.addArticle("02.04.2021", "Feichtinger");
 
-
+        // print reports
         System.out.println("\n\nSum of non alcoholic drinks: " + CashRegister.salesNonAlc());
 
         System.out.println("Sum of mild alcoholic drinks: " + CashRegister.salesMildAlc());

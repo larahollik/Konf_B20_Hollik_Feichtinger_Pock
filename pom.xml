@@ -264,10 +264,10 @@
     </reporting>
 
     <scm>
-        <connection>scm:git:https://github.com/michaelulm/software-configuration-management</connection>
-        <developerConnection>scm:git:https://github.com/michaelulm/software-configuration-management</developerConnection>
+        <connection>scm:git:https://github.com/larahollik/Konf_B20_Hollik_Feichtinger_Pock.git</connection>
+        <developerConnection>scm:git:https://github.com/larahollik/Konf_B20_Hollik_Feichtinger_Pock.git</developerConnection>
         <tag>HEAD</tag>
-        <url>https://github.com/michaelulm/software-configuration-management</url>
+        <url>https://github.com/larahollik/Konf_B20_Hollik_Feichtinger_Pock.git</url>
     </scm>
 
     <licenses>
@@ -275,7 +275,7 @@
             <name>GNU GPLv3 </name>
             <url>https://www.gnu.org/licenses/gpl-3.0.de.html</url>
             <distribution>repo</distribution>
-            <comments>I care about sharing improvements.</comments>
+            <comments>License sharing.</comments>
         </license>
     </licenses>
 
