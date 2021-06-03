@@ -24,8 +24,8 @@ public class CashRegisterTest {
     private Cocktail drinkTonicOnly = new Cocktail("Tonic Water", "sour", "Old Fashioned",
             liqTonicWater, Cocktail.CocktailType.Shortdrink);
 
-    private CashRegister sell1 = new CashRegister("Tuesday", drinkGinTonic, 11.0, "Marie");
-    private CashRegister sell2 = new CashRegister("Saturday", drinkTonicOnly, 5.0, "Herbert");
+    private CashRegister sell1 = new CashRegister("22.04.2021", drinkGinTonic, 11.0, "Marie");
+    private CashRegister sell2 = new CashRegister("19.02.2021", drinkTonicOnly, 5.0, "Herbert");
 
     @BeforeEach
     void setUp() {
@@ -35,7 +35,7 @@ public class CashRegisterTest {
         liqGinTonic.add(tonic);
         liqTonicWater.add(tonic);
 
-        cash = new CashRegister("Monday", drinkGinTonic, 10.0, "Franz");
+        cash = new CashRegister("12.02.2021", drinkGinTonic, 10.0, "Franz");
 
         List<CashRegister> sells = new ArrayList<CashRegister>();
         sells.add(sell1);
@@ -57,13 +57,13 @@ public class CashRegisterTest {
 
     @Test
     void getDay() {
-        assertEquals("Monday", cash.getDay());
+        assertEquals("12.02.2021", cash.getDay());
     }
 
     @Test
     void setDay() {
-        cash.setDay("Friday");
-        assertEquals("Friday", cash.getDay());
+        cash.setDay("04.05.2021");
+        assertEquals("04.05.2021", cash.getDay());
     }
 
     @Test
@@ -88,7 +88,7 @@ public class CashRegisterTest {
     @Test
     void setSells() {
         List<CashRegister> sells = new ArrayList<CashRegister>();
-        CashRegister sell3 = new CashRegister("Monday", drinkTonicOnly, 5.0, "Lara");
+        CashRegister sell3 = new CashRegister("12.02.2021", drinkTonicOnly, 5.0, "Lara");
         sells.add(sell1);
         sells.add(sell2);
         sells.add(sell3);
@@ -140,8 +140,8 @@ public class CashRegisterTest {
 
     @Test
     void salesOnDay() {
-        assertEquals(11.0, CashRegister.salesOnDay("Tuesday"));
-        assertEquals(0.0, CashRegister.salesOnDay("Sunday"));
+        assertEquals(11.0, CashRegister.salesOnDay("22.04.2021"));
+        assertEquals(0.0, CashRegister.salesOnDay("15.03.2021"));
     }
 
     @Test
@@ -152,7 +152,7 @@ public class CashRegisterTest {
 
     @Test
     void salesOfPersonOnDay() {
-        assertEquals(5.0, CashRegister.salesOfPersonOnDay("Saturday", "Herbert"));
-        assertEquals(0.0, CashRegister.salesOfPersonOnDay("Monday", "Herbert"));
+        assertEquals(5.0, CashRegister.salesOfPersonOnDay("19.02.2021", "Herbert"));
+        assertEquals(0.0, CashRegister.salesOfPersonOnDay("22.04.2021", "Herbert"));
     }
 }
