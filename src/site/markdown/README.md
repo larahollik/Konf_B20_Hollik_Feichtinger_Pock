@@ -16,17 +16,27 @@ The given project is the basis to get started with Git and its commands but also
 - `Main`
 - `Liquid`
 - `Drink`
-  - `Cocktail`
-    -  `LongDrink`
-  - `SimpleDrink`
-    -  `Juice`
-
-
+    - `Cocktail`
+        -  `LongDrink`
+    - `SimpleDrink`
+        -  `Juice`
+  
 ***Classes for JUnit Tests:***
+
 - `CocktailTest`
 - `LongDrinkTest`
 - `JuiceTest`
 - `CashRegisterTest`
+
+***Document structure of maven site***
+
+- `markdown`
+    - `index.md`
+    - `JUnit-Tests.md`
+    - `README.md`
+    - `tutorial.md`
+- `site.xml`
+
 ___
 
 
@@ -146,6 +156,17 @@ ___
 - adapted the readme.md: added information to the git diff command in the [Git Cheat Sheat](#git-cheat-sheat)
 
 - added the JavaDoc Markups to the class Juice
+
+
+## Third assignment - Version 3.0
+
+TODO: Viktoria
+
+###Lara Hollik
+
+###Viktoria Feichtinger
+
+###Daniela Pock
 
 ___
 

@@ -1,27 +1,67 @@
-//package at.fhj.iit;
-//
-//import org.junit.jupiter.api.BeforeEach;
-//import org.junit.jupiter.api.DisplayName;
-//import org.junit.jupiter.api.Test;
-//
-//import java.util.Arrays;
-//import java.util.List;
-//
-//import static org.junit.jupiter.api.Assertions.*;
-//
-//
-//@DisplayName("Testing Cocktail implementation")
-//public class CocktailTest {
-//    private Cocktail cocktail;
-//
-//    /**
-//     * inits Calculator with CalculatorImpl for EACH test
-//     */
-//    @BeforeEach
-//    void setup() {
-//        cocktail = new Cocktail("Pina Colada", "creamy", "Hurricane", );
-//    }
-//
+package at.fhj.iit;
+
+import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * Contains test cases regarding the {@link Cocktail} class and its methods
+ *
+ * @author Lara Hollik, Daniela Pock
+ * @version 3.0, 04.06.2021
+ * @see Cocktail
+ * @since v2.0
+ */
+
+@DisplayName("Testing new methods in Cocktail")
+public class CocktailTest {
+    private Cocktail cocktail;
+
+    @BeforeEach
+    void setup() {
+        List<Liquid> liquids = new ArrayList<Liquid>();
+        Liquid gin = new Liquid("gin", 0.2, 45);
+        liquids.add(gin);
+        Liquid tonic = new Liquid("tonic", 0.3, 0.00);
+        liquids.add(tonic);
+
+        cocktail = new Cocktail("Gin Tonic", "sour", "Old Fashioned", liquids, Cocktail.CocktailType.Shortdrink);
+        cocktail.addDecoration("lemon");
+    }
+
+    @Test
+    @DisplayName("Testing cocktail.addArticle(String day, String seller)")
+    void cocktailAddArticle(){
+        cocktail.addArticle("18.05.2021", "Feichtinger");
+        MatcherAssert.assertThat(CashRegister.getSells(), contains(
+                hasProperty("drink", is(cocktail))
+        ));
+    }
+
+
+    @Test
+    @DisplayName("Testing cocktail.calcPrice()")
+    void cocktailCalcPrice(){
+        assertEquals(8.6, cocktail.calcPrice());
+    }
+
+    @AfterEach
+    void backToStart(){
+        CashRegister.setSells(new ArrayList<CashRegister>());
+    }
+
+
+
 //    @Test
 //    @DisplayName("Testing getFlavour method")
 //    void getFlavourTest() {
@@ -197,12 +237,11 @@
 //        cocktail.setCocktailType(Cocktail.CocktailType.Dessert_Cocktail);
 //        cocktail.addDecoration("pineapple");
 //        assertEquals("A creamy Dessert_Cocktail called Pina Colada with 28.0 percent alcohol by volume, 0.3 liter of volume and served in a Hurricane glass decorated with a pineapple", cocktail.printCocktailMessage());
-//    }
-//}
-//
-//
-//
-//
-//
-//
-//
+}
+
+
+
+
+
+
+

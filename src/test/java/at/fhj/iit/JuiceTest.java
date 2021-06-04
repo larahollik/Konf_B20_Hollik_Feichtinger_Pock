@@ -1,34 +1,60 @@
-//package at.fhj.iit;
-//
-//import org.junit.jupiter.api.BeforeEach;
-//import org.junit.jupiter.api.DisplayName;
-//import org.junit.jupiter.api.Test;
-//
-//import static org.junit.jupiter.api.Assertions.*;
-//
-///**
-// * Contains test cases regarding the {@link Juice} class and its methods
-// *
-// * @author Daniela Pock
-// * @version 2.0, 17.05.2021
-// * @see Juice
-// * @since v2.0
-// */
-//
-//public class JuiceTest {
-//
-//    private Juice j;
-//
-//    /**
-//     * Phase: setup for the upcoming tests
-//     */
-//    @BeforeEach
-//    void setup()
-//    {
-//        Liquid juice = new Liquid("applejuice", 0.25, 2.00);
-//        j = new Juice("applejuice", juice,  17.5,false);
-//    }
-//
+package at.fhj.iit;
+
+import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * Contains test cases regarding the {@link Juice} class and its methods
+ *
+ * @author Daniela Pock
+ * @version 3.0, 04.06.2021
+ * @see Juice
+ * @since v2.0
+ */
+@DisplayName("Testing new methods in Juice")
+public class JuiceTest {
+    private Juice j;
+
+    /**
+     * Phase: setup for the upcoming tests
+     */
+    @BeforeEach
+    void setup()
+    {
+        Liquid juice = new Liquid("applejuice", 0.25, 2.00);
+        j = new Juice("applejuice", juice,  17.5,false);
+    }
+
+    @Test
+    @DisplayName("Testing juice.addArticle(String day, String seller)")
+    void juiceAddArticle(){
+        j.addArticle("08.05.2021", "Pock");
+        MatcherAssert.assertThat(CashRegister.getSells(), contains(
+                hasProperty("drink", is(j))
+        ));
+    }
+
+    @Test
+    @DisplayName("Testing juice.calcPrice()")
+    void juiceCalcPrice(){
+        assertEquals(0.7,j.calcPrice());
+    }
+
+    @AfterEach
+    void backToStart(){
+        CashRegister.setSells(new ArrayList<CashRegister>());
+    }
+
 //    /**
 //     * Phase: Exercise
 //     * Test for getSugarPercent
@@ -165,7 +191,7 @@
 //        // Phase: Verify
 //        assertEquals(1.00, j.getAlcoholPercent());
 //    }
-//}
-//
-//
-//
+}
+
+
+

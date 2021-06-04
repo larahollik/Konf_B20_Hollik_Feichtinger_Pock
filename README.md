@@ -16,15 +16,26 @@ The given project is the basis to get started with Git and its commands but also
 - `Main`
 - `Liquid`
 - `Drink`
-  - `Cocktail`
-    -  `LongDrink`
-  - `SimpleDrink`
-    -  `Juice`
-
-
+    - `Cocktail`
+        -  `LongDrink`
+    - `SimpleDrink`
+        -  `Juice`
+  
 ***Classes for JUnit Tests:***
+
 - `CocktailTest`
 - `LongDrinkTest`
+- `JuiceTest`
+- `CashRegisterTest`
+
+***Document structure of maven site***
+
+- `markdown`
+    - `index.md`
+    - `JUnit-Tests.md`
+    - `README.md`
+    - `tutorial.md`
+- `site.xml`
 
 ___
 
@@ -146,6 +157,17 @@ ___
 
 - added the JavaDoc Markups to the class Juice
 
+
+## Third assignment - Version 3.0
+
+TODO: Viktoria
+
+###Lara Hollik
+
+###Viktoria Feichtinger
+
+###Daniela Pock
+
 ___
 
 
@@ -174,7 +196,7 @@ or on [Github Cheat Sheat](https://training.github.com/downloads/github-git-chea
 
 |Git command|Description|
 |---|---|
-|**git clone <url>**|Loads an existing repository from GitHub on the local files|
+|**git clone url**|Loads an existing repository from GitHub on the local files|
 |**git pull**|Changes from the remote repository are pulled on the local files|
 |**git push**|Local changes are pushed to the remote repository in GitHub|
 

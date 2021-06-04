@@ -2,6 +2,7 @@ package at.fhj.iit;
 
 
 import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -154,5 +155,10 @@ public class CashRegisterTest {
     void salesOfPersonOnDay() {
         assertEquals(5.0, CashRegister.salesOfPersonOnDay("19.02.2021", "Herbert"));
         assertEquals(0.0, CashRegister.salesOfPersonOnDay("22.04.2021", "Herbert"));
+    }
+
+    @AfterEach
+    void backToStart(){
+        CashRegister.setSells(new ArrayList<CashRegister>());
     }
 }
