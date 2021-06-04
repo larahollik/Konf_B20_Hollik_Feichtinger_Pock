@@ -14,6 +14,14 @@ import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
 import static org.hamcrest.Matchers.hasProperty;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Contains test cases regarding the {@link CashRegister} class and its methods
+ *
+ * @author Lara Hollik, Daniela Pock
+ * @version 3.0, 04.06.2021
+ * @see CashRegister
+ * @since v3.0
+ */
 public class CashRegisterTest {
     private CashRegister cash;
     private List<Liquid> liqGinTonic = new ArrayList<Liquid>();
