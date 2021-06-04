@@ -1,6 +1,6 @@
 #Test coverage
 
-The new feature **CashRegister.java** got 100% of the test coverage.
+The new feature **CashRegister.java** got 100% of the test coverage in IntelliJ.
 
 ###The new methods *addArticle(String day, String seller)* and calcPrice() are tested for each class.
 
