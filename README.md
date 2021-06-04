@@ -44,6 +44,9 @@ ___
 
 ## First Assignment - Version 1.0
 
+To view the specification of the assignment, click here: 
+[Uebung02: Abgabe01 Versionsverwaltung](https://moodle.campus02.at/pluginfile.php/131161/mod_resource/content/1/Konfig%20Uebung02%20-%20der%20Weg%20zur%20ersten%20Abgabe%2020210311.pdf)
+
 
 ### Lara Mae Hollik subclass of Drink named Cocktail
 I have derived the abstract class `Drink` and created a new subclass called `Cocktail`. This class contains **new attributes**
@@ -83,6 +86,10 @@ flavour, cocktail type, glass type and ingredients.
 
 ___
 ## Second Assignment - Version 2.0
+
+To view the specification of the assignment, click here: 
+[Moodle - Uebung04: Abgabe02 Testen und JavaDocs](https://moodle.campus02.at/pluginfile.php/133583/mod_resource/content/0/Konfig%20Uebung04%20-Zweite%20Abgabe%2020210415.pdf)
+
 ### Lara Mae Hollik
 - I have rebuilt my `Cocktail` class so that the *volume* and *alcohol* percentage are now passed in the constructor. I have
   now also adapted this in the `main` class. Because the class `LongDrink` inherits from me, I also had to modify it and
@@ -112,24 +119,7 @@ ___
 
 
 - To test my written methods in `LongDrink` I have added the class `LongDrinkTest` which contains three unit tests.
-  They contain the three phases: setup, exercise and verify.
-
-    ````java
-  class LongDrinkTest{
-      // Phase: setup with @BeforeEach (initialisation for working with same constructed object
-      @BeforeEach
-      void setup(){}
-      
-      // all test methods - structure:
-      // Phase: Excersise 
-      @Test
-      @DisplayName("Testing xxx method")
-      void xxx() {
-        // Phase: Verify
-        assertEquals("The expected value of the method", the value of the object from setup); 
-      }
-      // run all tests and reached 100%
-  }
+  Details on how to implement JUnit Test are below: [JUnit tests - Structure](#junit-tests---structure)
 
 - I changed some syntax and formatting in README.md with the help of the [Markdown Guide (Basic Syntax)](https://www.markdownguide.org/basic-syntax/#horizontal-rules)
   and the [Markdown Guide (Markdown Cheat Sheet)](https://www.markdownguide.org/cheat-sheet).
@@ -145,7 +135,7 @@ ___
 
 ### Daniela Pock
 
-- I added the unit test for the Class Juice, (My tests follow the same structure as Viktoria's)
+- I added the unit test for the Class `Juice`, the test structure follows the same structure as there [JUnit tests - Structure](#junit-tests---structure)
     + added tests for getters and setters
       The method getsD() and setsD() are tested with one test.
     + added a test for the informationToString method of the class Juice
@@ -153,20 +143,42 @@ ___
     + Do the testcases cover 100% of the testcases?
       Yes!
 
-- adapted the readme.md: added information to the git diff command in the [Git Cheat Sheat](#git-cheat-sheat)
+- adapted the `README.md`: added information to the git diff command in the [Git Cheat Sheat](#git-cheat-sheat)
 
-- added the JavaDoc Markups to the class Juice
+- added the JavaDoc Markups to the class `Juice`
 
 
-## Third assignment - Version 3.0
+## Third Assignment - Version 3.0
 
-TODO: Viktoria
+The third assignment is primarily about creating a Maven project. To view the specification of the task click here: 
+[Moodle - Uebung06: Abgabe03 Maven Projekt](https://moodle.campus02.at/pluginfile.php/135684/mod_resource/content/0/Konfig%20Uebung06%20-%20Dritte%20Abgabe%2020210517.pdf)
 
 ###Lara Hollik
 
+- JUnit Tests for the class  `CashRegister`
+  - Do the test cases cover 100% of the testcases? Yes!
+  - The JUnit structure is the same as in [JUnit tests - Structure](#junit-tests---structure) explained
+
 ###Viktoria Feichtinger
 
+- edited `README.md`
+
+- Merged `cashRegister` branch into main
+
+- added the third version tag
+
 ###Daniela Pock
+
+- Implemented the interface `Article` in every subclass of Drink, it contains two methods [calcPrice() and addArticle(String day, String seller)] 
+
+- Implemented the class `CashRegister`: it is a new feature to use the program as a new cash register 
+  - The feature is detailed explained in the Maven Site Documentation
+
+- Implemented JUnit test cases for calcPrice() and addArticle(String day, String seller) for every subclass of Drink
+  - Do the test cases cover 100% of the testcases? Yes!
+  
+- Implemented the Maven Site Documentation, for more information view below [Maven Site Documentation](#maven-site-documentation)
+
 
 ___
 
@@ -203,7 +215,7 @@ or on [Github Cheat Sheat](https://training.github.com/downloads/github-git-chea
 **Important workflow during working on a project:**
 
 
-![Git workflow](https://github.com/viktoriaBSD/Programmieren2-github/blob/main/git-workflow.png)
+![Git workflow](https://github.com/viktoriaBSD/Programmieren2-github/blob/main/images/git-workflow.png)
 
 ### Git branching and merging commands
 |Git command|Description|
@@ -331,3 +343,61 @@ Common in-line tags:
 | **{@link *reference*}**| link to an implementation|
 |**{@linkplain *reference*}**| link is displayed as a standard text instead of source text characters
 |**{@code}**| suppresses the interpretation of included HTML or JavaDoc tags 
+
+
+## JUnit Tests - Structure
+
+The JUnit tests contains three phases: setup, exercise and verify. 
+
+Example from the `LongDrinkTest` class:
+
+```java
+    class LongDrinkTest{
+    // Phase: setup with @BeforeEach (initialisation for working with same constructed object
+    @BeforeEach
+    void setup(){}
+
+      // all test methods - structure:
+      // Phase: Excersise 
+      @Test
+      @DisplayName("Testing xxx method")
+      void xxx() {
+        // Phase: Verify
+        assertEquals("The expected value of the method", the_value_of_the_object_from_setup); 
+      }
+      // run all tests and reached 100%
+    }
+```
+
+## Maven Site Documentation
+
+First implementation was in the fifth practice session with 
+[that](https://moodle.campus02.at/pluginfile.php/134766/mod_resource/content/4/Konfig%20Uebung05%20-%20Maven%20Projekt%20und%20Maven%20Repository%2020210429.pdf) 
+task.
+
+To get started, we had to use [Maven in 5 Minutes Guide](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
+for installation and first implementation with the Maven Project.
+
+
+**Useful Links for Documentation we used:**
+(copied from the Calculator Project from the course)
+
+- Maven Site
+  - [Creating Content](https://maven.apache.org/plugins/maven-site-plugin/examples/creating-content.html)
+  - [Configuring Site Descriptor](https://maven.apache.org/plugins/maven-site-plugin/examples/sitedescriptor.html)
+  - [Markup Formats](https://maven.apache.org/doxia/references/index.html)
+- The [README Checklist](https://github.com/noffle/art-of-readme#bonus-the-readme-checklist)
+- [Make a README](https://www.makeareadme.com/) (why, who, when, where, ...)
+- [Documentation System](https://documentation.divio.com/)
+
+Our Maven Site Documentation contains a directory named `site` which has a file named `site.xml` and an other diretory 
+named `markdown` (it contains 4 files)
+- `site.xml`: it describes the structure of the site 
+  
+
+- `markdown`
+  - `index.md`: explains the decisions about the design of CashRegister
+  - `JUnit-Tests.md`: explains our test coverage
+  - `tutorial.md`: gives information about how to use the `CashRegister` class to other developers
+  - `README.md`: contains all information on how we worked and how we implemented the new learned content
+
